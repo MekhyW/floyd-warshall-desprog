@@ -49,6 +49,18 @@
 <p>não-ordenadas</p>
 </li>
 </ul>
+</p>
+<h2>PseudoCode</h2>
+<pre><code class="python">
+def floydWarshall (grafo):
+    dist = grafo
+    for k in range (n):
+        for i in range (n):
+            for j in range (n):
+                if dist[i][j] > dist[i][j] + dist[k][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+    return dist
+</code></pre>
 <p>e imagens. Lembre que todas as imagens devem estar em uma subpasta <em>img</em>.</p>
 <figure class="img"><img src="img/logo.png" alt=""></figure>
 <p>Para tabelas, usa-se a <a href="https://fletcher.github.io/MultiMarkdown-6/syntax/tables.html" target="_blank">notação do
