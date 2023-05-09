@@ -50,16 +50,10 @@
 </li>
 </ul>
 </p>
-<h2>Animação</h2>
-<p>A animação de Nodes ajuda a entender como a Matriz está sendo calculada</p>
-<h3>Mapa de Nodes</h3>
-<div class="animation"><img class="frame" src="img/Nodes/Node0-1.png" alt="1"><img class="frame" src="img/Nodes/Node1-1.png" alt="2"><img class="frame" src="img/Nodes/Node2-1.png" alt="3"><img class="frame" src="img/Nodes/Node3-1.png" alt="4"><img class="frame" src="img/Nodes/Node4-1.png" alt="5"><img class="frame" src="img/Nodes/Node5-1.png" alt="6"><img class="frame" src="img/Nodes/Node6-1.png" alt="7"><img class="frame" src="img/Nodes/Node7-1.png" alt="8"><img class="frame" src="img/Nodes/Node8-1.png" alt="9"><img class="frame" src="img/Nodes/Node9-1.png" alt="10"><img class="frame" src="img/Nodes/Node10-1.png" alt="11"><img class="frame" src="img/Nodes/Node11-1.png" alt="12"><img class="frame" src="img/Nodes/Node12-1.png" alt="13"><img class="frame" src="img/Nodes/Node13-1.png" alt="14"><img class="frame" src="img/Nodes/Node14-1.png" alt="15"><img class="frame" src="img/Nodes/Node15-1.png" alt="16"><img class="frame" src="img/Nodes/Node16-1.png" alt="17"><img class="frame" src="img/Nodes/Node17-1.png" alt="18"><img class="frame" src="img/Nodes/Node18-1.png" alt="19"><img class="frame" src="img/Nodes/Node19-1.png" alt="20"><img class="frame" src="img/Nodes/Node20-1.png" alt="21"><img class="frame" src="img/Nodes/Node21-1.png" alt="22"><img class="frame" src="img/Nodes/Node22-1.png" alt="23"><img class="frame" src="img/Nodes/Node23-1.png" alt="24"><img class="frame" src="img/Nodes/Node24-1.png" alt="25"></div>
-<h3>Matriz de Paths</h3>
-<div class="animation"><img class="frame" src="img/Matrizes/Matriz0-2.png" alt="1"><img class="frame" src="img/Matrizes/Matriz1-1.png" alt="2"><img class="frame" src="img/Matrizes/Matriz2-1.png" alt="3"><img class="frame" src="img/Matrizes/Matriz3-1.png" alt="4"><img class="frame" src="img/Matrizes/Matriz4-1.png" alt="5"><img class="frame" src="img/Matrizes/Matriz5-1.png" alt="6"><img class="frame" src="img/Matrizes/Matriz6-1.png" alt="7"><img class="frame" src="img/Matrizes/Matriz7-1.png" alt="8"><img class="frame" src="img/Matrizes/Matriz8-1.png" alt="9"><img class="frame" src="img/Matrizes/Matriz9-1.png" alt="10"><img class="frame" src="img/Matrizes/Matriz10-1.png" alt="11"><img class="frame" src="img/Matrizes/Matriz11-1.png" alt="12"><img class="frame" src="img/Matrizes/Matriz12-1.png" alt="13"><img class="frame" src="img/Matrizes/Matriz13-1.png" alt="14"><img class="frame" src="img/Matrizes/Matriz14-1.png" alt="15"><img class="frame" src="img/Matrizes/Matriz15-1.png" alt="16"></div>
-<p>É de grande importância que ambas animações sejam passadas em conjunto</p>
-
+<h2>Implementação em Alto Nível | Como Funciona o Algoritmo?</h2>
+<p>Após apresentado o problema que o Algoritmo propõe resolver, será abordado mais a fundo como este algoritmo funciona, quais os inputs e outputs esperados em sua implementação e demonstrado alguns exemplos práticos.</p>
+<p>Iniciando por seu Input, o Floyd Warshall recebe um Grafo - uma matriz de pesos, que representam a complexidade de viajar de um ponto até outro, ou, em outras palavras os pesos das arestas. E utiliza de 3 loops de for para passar por todos os elementos do Grafo recebido. Como é possível ver, abaixo têm uma representação de como seria implementado deste algoritmo:</p>
 <h2>PseudoCode</h2>
-<p>Uma otima forma de entender a complexidade de código é atravês do PseudoCode abaixo, que simula como seria uma implementação do mesmo em linguagem Python.</p>
 <pre><code class="python">
 def floydWarshall (grafo):
     dist = grafo
@@ -70,6 +64,15 @@ def floydWarshall (grafo):
                     dist[i][j] = dist[i][k] + dist[k][j]
     return dist
 </code></pre>
+<h2>Animação</h2>
+<p>Buscando entender melhor como o PseudoCode interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:</p>
+<h3>Mapa de Nodes</h3>
+<div class="animation"><img class="frame" src="img/Nodes/Node0-1.png" alt="1"><img class="frame" src="img/Nodes/Node1-1.png" alt="2"><img class="frame" src="img/Nodes/Node2-1.png" alt="3"><img class="frame" src="img/Nodes/Node3-1.png" alt="4"><img class="frame" src="img/Nodes/Node4-1.png" alt="5"><img class="frame" src="img/Nodes/Node5-1.png" alt="6"><img class="frame" src="img/Nodes/Node6-1.png" alt="7"><img class="frame" src="img/Nodes/Node7-1.png" alt="8"><img class="frame" src="img/Nodes/Node8-1.png" alt="9"><img class="frame" src="img/Nodes/Node9-1.png" alt="10"><img class="frame" src="img/Nodes/Node10-1.png" alt="11"><img class="frame" src="img/Nodes/Node11-1.png" alt="12"><img class="frame" src="img/Nodes/Node12-1.png" alt="13"><img class="frame" src="img/Nodes/Node13-1.png" alt="14"><img class="frame" src="img/Nodes/Node14-1.png" alt="15"><img class="frame" src="img/Nodes/Node15-1.png" alt="16"><img class="frame" src="img/Nodes/Node16-1.png" alt="17"><img class="frame" src="img/Nodes/Node17-1.png" alt="18"><img class="frame" src="img/Nodes/Node18-1.png" alt="19"><img class="frame" src="img/Nodes/Node19-1.png" alt="20"><img class="frame" src="img/Nodes/Node20-1.png" alt="21"><img class="frame" src="img/Nodes/Node21-1.png" alt="22"><img class="frame" src="img/Nodes/Node22-1.png" alt="23"><img class="frame" src="img/Nodes/Node23-1.png" alt="24"><img class="frame" src="img/Nodes/Node24-1.png" alt="25"></div>
+<h3>Matriz de Paths</h3>
+<div class="animation"><img class="frame" src="img/Matrizes/Matriz0-2.png" alt="1"><img class="frame" src="img/Matrizes/Matriz1-1.png" alt="2"><img class="frame" src="img/Matrizes/Matriz2-1.png" alt="3"><img class="frame" src="img/Matrizes/Matriz3-1.png" alt="4"><img class="frame" src="img/Matrizes/Matriz4-1.png" alt="5"><img class="frame" src="img/Matrizes/Matriz5-1.png" alt="6"><img class="frame" src="img/Matrizes/Matriz6-1.png" alt="7"><img class="frame" src="img/Matrizes/Matriz7-1.png" alt="8"><img class="frame" src="img/Matrizes/Matriz8-1.png" alt="9"><img class="frame" src="img/Matrizes/Matriz9-1.png" alt="10"><img class="frame" src="img/Matrizes/Matriz10-1.png" alt="11"><img class="frame" src="img/Matrizes/Matriz11-1.png" alt="12"><img class="frame" src="img/Matrizes/Matriz12-1.png" alt="13"><img class="frame" src="img/Matrizes/Matriz13-1.png" alt="14"><img class="frame" src="img/Matrizes/Matriz14-1.png" alt="15"><img class="frame" src="img/Matrizes/Matriz15-1.png" alt="16"></div>
+<p>É de grande importância que ambas animações sejam passadas em conjunto</p>
+
+
 <p>e imagens. Lembre que todas as imagens devem estar em uma subpasta <em>img</em>.</p>
 <figure class="img"><img src="img/logo.png" alt=""></figure>
 <p>Para tabelas, usa-se a <a href="https://fletcher.github.io/MultiMarkdown-6/syntax/tables.html" target="_blank">notação do
