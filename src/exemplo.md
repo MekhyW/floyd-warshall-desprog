@@ -50,6 +50,39 @@ $$\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} \leq 1$$
 Para inserir uma animação, use `md :` seguido do nome de uma pasta onde as
 imagens estão. Essa pasta também deve estar em *img*.
 
+Implementação em Alto Nível | Como Funciona o Algoritmo?
+
+Após apresentado o problema que o Algoritmo propõe resolver, será abordado mais a fundo como este algoritmo funciona, quais os inputs e outputs esperados em sua implementação e demonstrado alguns exemplos práticos.
+
+Iniciando por seu Input, o Floyd Warshall recebe um Grafo - uma matriz de pesos, que representam a complexidade de viajar de um ponto até outro, ou, em outras palavras os pesos das arestas. E utiliza de 3 loops de for para passar por todos os elementos do Grafo recebido. Como é possível ver, abaixo têm uma representação de como seria implementado deste algoritmo:
+
+PseudoCode:
+
+```python
+def floydWarshall (grafo):
+    dist = grafo
+    for k in range (n):
+        for i in range (n):
+            for j in range (n):
+                if dist[i][j] > dist[i][j] + dist[k][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+    return dist
+```
+
+Animação:
+
+Buscando entender melhor como o PseudoCode interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:
+
+Mapa de Nodes
+
+:Matrizes
+
+:Nodes
+
+Matriz de Paths
+
+É de grande importância que ambas animações sejam passadas em conjunto
+
 :bubble
 
 Você também pode inserir código, inclusive especificando a linguagem.
