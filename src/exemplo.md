@@ -178,7 +178,9 @@ Exercícios
 
 ::: Gabarito
 
+- Parte 1: Matriz de Pesos
 
+    ![](Gabarito1-exercicio1.png)
 
 ???
 
