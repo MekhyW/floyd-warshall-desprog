@@ -46,37 +46,36 @@ Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor 
 ??? Checkpoint
 Qual o menor caminho entre o Nodo A e B?
 
-![](Exemplo-1.png|13)
+![](Exemplos/Checkpoint2.png)
 
 ::: Gabarito
 
-![](matriz-exemplo.png)
+O menor caminho entre A e B é ir pelo nodo C que têm peso 5, e depois de C chegar em B, tendo um peso total de 6 - contra o caminho convencional de 7.
 
-Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
 ??? Checkpoint
-Qual o menor caminho entre o nodo D e C?
+Qual o menor caminho entre o nodo B e C?
 
-![](Exemplo-1.png|13)
+![](Exemplos/Checkpoint2.png)
 
 ::: Gabarito
 
-![](matriz-exemplo.png)
+O menor caminho entre B e C é ir pelo nodo A que têm peso 5 e depois ir para o nodo C com um peso total de 6 - contra o caminho convencional de 10.
 
-Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
-??? Checkpoint
-Qual o menor caminho entr o nodo B e C?
+Você deve estar achando o problema muito fácil, basta analisarmos os nodos e seus pesos e encontrarmos o caminho com menor peso. Porém, perceba que estamos apenas buscando pesos entre dois nodos de um Grafo com 3 nodos. Se aumentarmos o tamanho do problema e pedirmos para encontrar todos os menores caminhos em todos os nodos consumirá mais tempo.
 
-![](Exemplo-1.png|13)
+??? Checkpoint
+Qual o menor caminho entre todos os nodos?
+
+![](Exemplos/Grafo-Checkpoint3-desafio.png)
 
 ::: Gabarito
 
-![](matriz-exemplo.png)
+Tenho certeza que você nem tentou resolver e já abriu o gabarito. Mas tudo bem, não esperamos que você resolva este Checkpoint, se quiser algo realmente dificil, desça até os desafios.
 
-Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
 Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado, para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial.
