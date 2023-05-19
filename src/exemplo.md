@@ -1,6 +1,10 @@
 Algoritmo de Floyd-Warshall
 ======
 
+
+
+
+
 Problema dos menores caminhos
 ---------
 
@@ -48,15 +52,18 @@ E qual a complexidade de espaço? Lembre-se que o algoritmo recebe uma matriz de
 A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².
 ???
 
-Animação:
+Animação
+---------
 
 Buscando entender melhor como o pseudocódigo interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:
 
 Mapa de Nodes
+---------
 
 :Nodes
 
 Matriz de Paths
+---------
 
 :Matrizes
 
