@@ -130,3 +130,55 @@ Para o primeiro passo do algoritmo, vemos que a coluna principal da matriz de di
 ::: Gabarito
 Isso acontece pois a distância de um nó para ele mesmo é 0! Logo, a coluna principal é preenchida com 0.
 ???
+
+Desafios
+---------
+
+??? Desafio 1 - Google Maps
+
+![](googlemaps.jpg|15)
+
+Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de usuários em relação à performance do aplicativo. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem compilada, mais rápida do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Como você é experiente em linguagem C, resolveu implementar o algoritmo nessa linguagem. 
+
+Desenvolva uma função `c floydWarshall`, que recebe como argumentos uma matriz de adjacência `c grafo` e o número de vértices `c n`, e retorna a matriz de distâncias `c dist`.
+
+Dica: Parta do código em Python apresentado anteriormente. Como ficariam os tipos de dados?
+::: Gabarito
+```c
+int **floydWarshall(int grafo[][], int n) {
+    int **dist = grafo;
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (dist[i][j] > dist[i][k] + dist[k][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+    return dist;
+}
+```
+???
+
+
+??? Desafio 2 - Rede social
+A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é modelado por um vértice e cada conexão entre amigos é modelada por uma aresta. A distância entre dois amigos é dada pelo número de arestas que separam os dois vértices. 
+
+![](social.png|20)
+
+O professor dessa disciplina, que é muito querido pelos alunos, quer saber qual é o par de amigos que está mais distante um do outro. Para isso vamos utilizar o algoritmo de Floyd Warshall para calcular a matriz de distâncias entre todos os pares de amigos.
+
+Qual a dimensionalidade da matriz de adjacência? Represente a matriz de distâncias na PRIMEIRA iteração do algoritmo de Floyd Warshall, e no FINAL da última iteração (com todas as distâncias calculadas).
+::: Gabarito
+A matriz tem dimensionalidade 7x7, pois existem 7 vértices.
+
+Após a primeira iteração, a matriz é a mesma da matriz de adjacência: 
+
+![](social-resposta-a.png|20)
+
+Após a última iteração, a matriz é a seguinte:
+
+![](social-resposta-b.png|20)
+
+???
