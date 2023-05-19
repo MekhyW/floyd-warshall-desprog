@@ -113,6 +113,39 @@
 <p>A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².</p>
 </details>
 </blockquote>
+<p>Agora que todos os conceitos sobre Floyd-Warshall foram demonstrados, você já viu a teória, sabe transformar um Grafo em Matriz e têm ideia de como implementar o código. Vamos voltar para tratar das regras e estabelecer elas definitivamente, principalmente a 3° Regra.</p>
+<h2>Regras:</h2>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Regras</th>
+<th>Teória</th>
+<th>Prática</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1°</td>
+<td>Matriz deve ser quadrada</td>
+<td>Deve navegar todas as possibilidades</td>
+</tr>
+<tr>
+<td>2°</td>
+<td>A -&gt; A = 0</td>
+<td>Não modificar input diretamente</td>
+</tr>
+<tr>
+<td>3°</td>
+<td>Se não existe aresta peso = infinito</td>
+<td></td>
+</tr>
+<tr>
+<td>4°</td>
+<td>Se existir aresta peso = peso da aresta</td>
+<td></td>
+</tr>
+</tbody>
+</table></figure>
 <h2>Desafios</h2>
 <blockquote class="question">
 <p>Desafio 1 - Google Maps</p>

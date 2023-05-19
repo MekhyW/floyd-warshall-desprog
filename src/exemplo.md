@@ -118,6 +118,18 @@ E qual a complexidade de espaço? Lembre-se que o algoritmo recebe uma matriz de
 A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².
 ???
 
+Agora que todos os conceitos sobre Floyd-Warshall foram demonstrados, você já viu a teória, sabe transformar um Grafo em Matriz e têm ideia de como implementar o código. Vamos voltar para tratar das regras e estabelecer elas definitivamente, principalmente a 3° Regra.
+
+Regras:
+---------
+
+| Regras | Teória                                  | Prática                              |
+|--------|-----------------------------------------|--------------------------------------|
+| 1°     | Matriz deve ser quadrada                | Deve navegar todas as possibilidades |
+| 2°     | A -> A = 0                              | Não modificar input diretamente      |
+| 3°     | Se não existe aresta peso = infinito    |                                      |
+| 4°     | Se existir aresta peso = peso da aresta |                                      |
+
 Desafios
 ---------
 
