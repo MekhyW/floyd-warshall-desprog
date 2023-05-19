@@ -41,7 +41,46 @@ Qual a matriz de pesos do Grafo abaixo?
 Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
-Se temos os pesoss de uma matriz
+Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos. Pensei na melhor forma de encontrar o menor caminho e aplique este formato nos checkpoints abaixo.
+
+??? Checkpoint
+Qual o menor caminho entre o Nodo A e B?
+
+![](Exemplo-1.png|13)
+
+::: Gabarito
+
+![](matriz-exemplo.png)
+
+Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
+???
+
+??? Checkpoint
+Qual o menor caminho entre o nodo D e C?
+
+![](Exemplo-1.png|13)
+
+::: Gabarito
+
+![](matriz-exemplo.png)
+
+Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
+???
+
+??? Checkpoint
+Qual o menor caminho entr o nodo B e C?
+
+![](Exemplo-1.png|13)
+
+::: Gabarito
+
+![](matriz-exemplo.png)
+
+Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
+???
+
+Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado, para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial.
+
 
 Implementação em Alto Nível | Como Funciona o Algoritmo?
 ---------
