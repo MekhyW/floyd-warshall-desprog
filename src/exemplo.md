@@ -126,7 +126,7 @@ Regras:
 | Regras | Teória                                  | Prática                              |
 |--------|-----------------------------------------|--------------------------------------|
 | 1°     | Matriz deve ser quadrada                | Deve navegar todas as possibilidades |
-| 2°     | A -> A = 0                              | Não modificar input diretamente      |
+| 2°     | Nodo A -> Nodo A = 0                    | Não modificar input diretamente      |
 | 3°     | Se não existe aresta peso = infinito    |                                      |
 | 4°     | Se existir aresta peso = peso da aresta |                                      |
 
@@ -155,12 +155,32 @@ int **floydWarshall(int grafo[][], int n) {
 }
 ```
 
-Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por [][], mas que também pode ser representada por ** - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
-
+Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por "[ ][ ]", mas que também pode ser representada por "**" - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
 
 Exercícios
 ---------
 
+??? Exercício 1 - Descobrindo Todos Caminhos mais Curtos
+
+![](Exercicio1.png)
+
+- Parte 1: Matriz de Pesos
+
+    Construa a matriz de pesos do grafo acima. Utilizando as Regras definitivas.
+
+- Parte 2: Implemente o Código em C
+
+    Implemente o código em C para encontrar todos os caminhos mais curtos entre todos os nodos do grafo. Utilizando a função floydWarshall.
+
+- Parte 3: Construa a Matriz de Distâncias
+
+    Construa a matriz de distâncias do grafo acima. Utilizando as Regras definitivas.
+
+::: Gabarito
+
+
+
+???
 
 Desafios
 ---------
