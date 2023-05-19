@@ -28,19 +28,27 @@
 <p>Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e saber qual o menor caminho entre eles. Esse é o problema dos menores caminhos, e o algoritmo de Floyd-Warshall é uma solução para esse problema.</p>
 <figure class="img"><img src="img/cubo-arvore.png" alt="" style="max-height: 20em;"></figure>
 <h2>Grafos como Matrizes</h2>
-<p><img src="img/Nodes/Node0.png" alt="" style="max-height: 11em;">
-<img src="img/Matrizes/Matriz95.png" alt="" style="max-height: 11em;"></p>
+<p><img src="img/Exemplos/Grafo-Exemplo1.png" alt="">
+<img src="img/Exemplos/Matriz-Grafo1.png" alt=""></p>
 <p>Este é um exemplo de grafo muito utilizado, existem 4 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>
 <p>Este formato pode ir desde listas, pilhas, filas… porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.</p>
-<p>Mas como que uma matriz pode representar um grafo? A resposta é simples, cada linha e coluna da matriz representa um nodo, e o valor da interseção entre a linha e a coluna representa o peso da aresta que conecta os dois nodos.</p>
+<p>Mas como que uma matriz pode representar um grafo? Para isso existem regras de construção:</p>
+<ol>
+<li>A matriz deve ser quadrada, ou seja, o número de linhas deve ser igual ao número de colunas.</li>
+<li>A distância/peso de um Node para ele mesmo é igual a 0.</li>
+<li>Se não existe uma aresta entre dois Nodes, o peso é igual a zero.</li>
+<li>Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.</li>
+</ol>
+<p>A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.</p>
+<p><em>Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.</em></p>
 <blockquote class="question">
 <p>Checkpoint</p>
-<p>Utilizando o Grafo 3x3 abaixo, qual vai ser a matriz dele?</p>
+<p>Qual a matriz de pesos do Grafo abaixo?</p>
 <figure class="img"><img src="img/Exemplo-1.png" alt="" style="max-height: 13em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³).</p>
 <figure class="img"><img src="img/matriz-exemplo.png" alt=""></figure>
+<p>Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.</p>
 </details>
 </blockquote>
 <p>Se temos os pesoss de uma matriz</p>
@@ -75,10 +83,8 @@
 </blockquote>
 <h2>Animação</h2>
 <p>Buscando entender melhor como o pseudocódigo interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:</p>
-<h2>Mapa de Nodes</h2>
-<div class="animation"><img class="frame" src="img/Nodes/Node0.png" alt="1"><img class="frame" src="img/Nodes/Node1.png" alt="2"><img class="frame" src="img/Nodes/Node10.png" alt="3"><img class="frame" src="img/Nodes/Node11.png" alt="4"><img class="frame" src="img/Nodes/Node12.png" alt="5"><img class="frame" src="img/Nodes/Node13.png" alt="6"><img class="frame" src="img/Nodes/Node14.png" alt="7"><img class="frame" src="img/Nodes/Node15.png" alt="8"><img class="frame" src="img/Nodes/Node16.png" alt="9"><img class="frame" src="img/Nodes/Node17.png" alt="10"><img class="frame" src="img/Nodes/Node18.png" alt="11"><img class="frame" src="img/Nodes/Node19.png" alt="12"><img class="frame" src="img/Nodes/Node2.png" alt="13"><img class="frame" src="img/Nodes/Node20.png" alt="14"><img class="frame" src="img/Nodes/Node21.png" alt="15"><img class="frame" src="img/Nodes/Node22.png" alt="16"><img class="frame" src="img/Nodes/Node23.png" alt="17"><img class="frame" src="img/Nodes/Node24.png" alt="18"><img class="frame" src="img/Nodes/Node3.png" alt="19"><img class="frame" src="img/Nodes/Node4.png" alt="20"><img class="frame" src="img/Nodes/Node5.png" alt="21"><img class="frame" src="img/Nodes/Node6.png" alt="22"><img class="frame" src="img/Nodes/Node7.png" alt="23"><img class="frame" src="img/Nodes/Node8.png" alt="24"><img class="frame" src="img/Nodes/Node9.png" alt="25"></div>
 <h2>Matriz de Paths</h2>
-<div class="animation"><img class="frame" src="img/Matrizes/Matriz1.png" alt="1"><img class="frame" src="img/Matrizes/Matriz2.png" alt="2"><img class="frame" src="img/Matrizes/Matriz3.png" alt="3"><img class="frame" src="img/Matrizes/Matriz4.png" alt="4"><img class="frame" src="img/Matrizes/Matriz5.png" alt="5"><img class="frame" src="img/Matrizes/Matriz6.png" alt="6"><img class="frame" src="img/Matrizes/Matriz7.png" alt="7"><img class="frame" src="img/Matrizes/Matriz8.png" alt="8"><img class="frame" src="img/Matrizes/Matriz9.png" alt="9"><img class="frame" src="img/Matrizes/Matriz91.png" alt="10"><img class="frame" src="img/Matrizes/Matriz92.png" alt="11"><img class="frame" src="img/Matrizes/Matriz94.png" alt="12"><img class="frame" src="img/Matrizes/Matriz95.png" alt="13"></div>
+<div class="animation"><img class="frame" src="img/Matrizes/Matriz0.png" alt="1"><img class="frame" src="img/Matrizes/Matriz1.png" alt="2"><img class="frame" src="img/Matrizes/Matriz2.png" alt="3"><img class="frame" src="img/Matrizes/Matriz3.png" alt="4"><img class="frame" src="img/Matrizes/Matriz4.png" alt="5"><img class="frame" src="img/Matrizes/Matriz5.png" alt="6"><img class="frame" src="img/Matrizes/Matriz6.png" alt="7"></div>
 <p>É de grande importância que ambas as animações sejam passadas em conjunto</p>
 <blockquote class="question">
 <p>Checkpoint</p>

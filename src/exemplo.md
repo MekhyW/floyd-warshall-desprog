@@ -11,26 +11,34 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 Grafos como Matrizes
 ---------
 
-![](Nodes/Node0.png|11)
-![](Matrizes/Matriz95.png|11)
+![](Exemplos/Grafo-Exemplo1.png)
+![](Exemplos/Matriz-Grafo1.png)
 
 Este é um exemplo de grafo muito utilizado, existem 4 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
 
 Este formato pode ir desde listas, pilhas, filas... porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.
 
-Mas como que uma matriz pode representar um grafo? A resposta é simples, cada linha e coluna da matriz representa um nodo, e o valor da interseção entre a linha e a coluna representa o peso da aresta que conecta os dois nodos.
+Mas como que uma matriz pode representar um grafo? Para isso existem regras de construção:
+
+1. A matriz deve ser quadrada, ou seja, o número de linhas deve ser igual ao número de colunas.
+2. A distância/peso de um Node para ele mesmo é igual a 0.
+3. Se não existe uma aresta entre dois Nodes, o peso é igual a zero.
+4. Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.
+
+A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.
+
+*Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.*
 
 ??? Checkpoint
-Utilizando o Grafo 3x3 abaixo, qual vai ser a matriz dele?
+Qual a matriz de pesos do Grafo abaixo?
 
 ![](Exemplo-1.png|13)
 
 ::: Gabarito
 
-Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³).
-
 ![](matriz-exemplo.png)
 
+Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
 Se temos os pesoss de uma matriz
@@ -71,11 +79,6 @@ Animação
 ---------
 
 Buscando entender melhor como o pseudocódigo interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:
-
-Mapa de Nodes
----------
-
-:Nodes
 
 Matriz de Paths
 ---------
