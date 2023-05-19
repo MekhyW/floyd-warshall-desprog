@@ -197,25 +197,27 @@
 <blockquote class="question">
 <p>Desafio 1 - Google Maps</p>
 <figure class="img"><img src="img/googlemaps.jpg" alt="" style="max-height: 15em;"></figure>
-<p>Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de usuários em relação à performance do aplicativo. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem compilada, mais rápida do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Como você é experiente em linguagem C, resolveu implementar o algoritmo nessa linguagem.</p>
-<p>Desenvolva uma função <code class="language-c">floydWarshall</code>, que recebe como argumentos uma matriz de adjacência <code class="language-c">grafo</code> e o número de vértices <code class="language-c">n</code>, e retorna a matriz de distâncias <code class="language-c">dist</code>.</p>
-<p>Dica: Parta do código em Python apresentado anteriormente. Como ficariam os tipos de dados?</p>
+<p>Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de desenvolvedores, muitos dos quais pedem um novo client. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem interpretada, mais flexível do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Esse algoritmo, entretanto, precisa de uma modificação em relação ao clássico: Ele precisa receber como argumento uma segunda matriz, que representa o tempo de viagem entre os pontos. A matriz de distâncias deve ser calculada com base na matriz de tempos, e não na matriz de adjacência.</p>
+<p>Desenvolva uma função <code class="language-c">floydWarshall</code>, que recebe como argumentos uma matriz de adjacência <code class="language-c">grafo</code> e o número de vértices <code class="language-c">n</code>, e retorna a matriz de distâncias <code class="language-c">dist</code>, com a modificação pedida.</p>
+<p>Dica: Parta do código em C apresentado anteriormente.</p>
 <details class="answer">
 <summary>Gabarito</summary>
-<pre><code class="language-c">int **floydWarshall(int grafo[][], int n) {
-    int **dist = grafo;
-    for (int k = 0; k &lt; n; k++) {
-        for (int i = 0; i &lt; n; i++) {
-            for (int j = 0; j &lt; n; j++) {
-                if (dist[i][j] &gt; dist[i][k] + dist[k][j]) {
-                    dist[i][j] = dist[i][k] + dist[k][j];
-                }
-            }
-        }
-    }
-    return dist;
-}
+<pre><code class="language-python">def floydWarshall(grafo, n, tempos):
+    dist = [[float('inf') if i != j else 0 for j in range(n)] for i in range(n)]
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                continue
+            if grafo[i][j]:
+                dist[i][j] = grafo[i][j]   
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if dist[i][j] &gt; dist[i][k] + dist[k][j] + tempos[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j] + tempos[i][j]        
+    return dist
 </code></pre>
+<p>A matriz tempos representa a matriz de tempos de viagem, onde tempos[i][j] é o tempo de viagem entre o vértice i e o vértice j. A matriz de adjacência grafo representa o grafo, onde grafo[i][j] é o peso da aresta entre o vértice i e o vértice j. A matriz de distâncias dist é a matriz de distâncias entre todos os pares de vértices, onde dist[i][j] é a distância entre o vértice i e o vértice j.</p>
 </details>
 </blockquote>
 <blockquote class="question">

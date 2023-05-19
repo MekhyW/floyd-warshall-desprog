@@ -191,27 +191,29 @@ Desafios
 
 ![](googlemaps.jpg|15)
 
-Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de usuários em relação à performance do aplicativo. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem compilada, mais rápida do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Como você é experiente em linguagem C, resolveu implementar o algoritmo nessa linguagem. 
+Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de desenvolvedores, muitos dos quais pedem um novo client. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem interpretada, mais flexível do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Esse algoritmo, entretanto, precisa de uma modificação em relação ao clássico: Ele precisa receber como argumento uma segunda matriz, que representa o tempo de viagem entre os pontos. A matriz de distâncias deve ser calculada com base na matriz de tempos, e não na matriz de adjacência.
 
-Desenvolva uma função `c floydWarshall`, que recebe como argumentos uma matriz de adjacência `c grafo` e o número de vértices `c n`, e retorna a matriz de distâncias `c dist`.
+Desenvolva uma função `c floydWarshall`, que recebe como argumentos uma matriz de adjacência `c grafo` e o número de vértices `c n`, e retorna a matriz de distâncias `c dist`, com a modificação pedida.
 
-Dica: Parta do código em Python apresentado anteriormente. Como ficariam os tipos de dados?
+Dica: Parta do código em C apresentado anteriormente.
 ::: Gabarito
-```c
-int **floydWarshall(int grafo[][], int n) {
-    int **dist = grafo;
-    for (int k = 0; k < n; k++) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (dist[i][j] > dist[i][k] + dist[k][j]) {
-                    dist[i][j] = dist[i][k] + dist[k][j];
-                }
-            }
-        }
-    }
-    return dist;
-}
+```python
+def floydWarshall(grafo, n, tempos):
+    dist = [[float('inf') if i != j else 0 for j in range(n)] for i in range(n)]
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                continue
+            if grafo[i][j]:
+                dist[i][j] = grafo[i][j]   
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if dist[i][j] > dist[i][k] + dist[k][j] + tempos[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j] + tempos[i][j]        
+    return dist
 ```
+A matriz tempos representa a matriz de tempos de viagem, onde tempos[i][j] é o tempo de viagem entre o vértice i e o vértice j. A matriz de adjacência grafo representa o grafo, onde grafo[i][j] é o peso da aresta entre o vértice i e o vértice j. A matriz de distâncias dist é a matriz de distâncias entre todos os pares de vértices, onde dist[i][j] é a distância entre o vértice i e o vértice j.
 ???
 
 
