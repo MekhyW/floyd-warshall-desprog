@@ -1,23 +1,29 @@
 Algoritmo de Floyd-Warshall
 ======
 
+Problema dos menores caminhos
+---------
+
+Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e saber qual o menor caminho entre eles. Esse é o problema dos menores caminhos, e o algoritmo de Floyd-Warshall é uma solução para esse problema.
+
+![](cubo-arvore.png|20)
+
 Grafos como Matrizes
 ---------
 
-![](Nodes/Node0.png)
+![](Nodes/Node0.png|11)
+![](Matrizes/Matriz95.png|11)
 
 Este é um exemplo de grafo muito utilizado, existem 4 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
 
 Este formato pode ir desde listas, pilhas, filas... porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.
-
-![](Matrizes/Matriz95.png)
 
 Mas como que uma matriz pode representar um grafo? A resposta é simples, cada linha e coluna da matriz representa um nodo, e o valor da interseção entre a linha e a coluna representa o peso da aresta que conecta os dois nodos.
 
 ??? Checkpoint
 Utilizando o Grafo 3x3 abaixo, qual vai ser a matriz dele?
 
-![](exemplo-1.png)
+![](Exemplo-1.png|13)
 
 ::: Gabarito
 
@@ -28,14 +34,6 @@ Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da mat
 ???
 
 Se temos os pesoss de uma matriz
- 
-
-Problema dos menores caminhos
----------
-
-Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e saber qual o menor caminho entre eles. Esse é o problema dos menores caminhos, e o algoritmo de Floyd-Warshall é uma solução para esse problema.
-
-![](cubo-arvore.png|20)
 
 Implementação em Alto Nível | Como Funciona o Algoritmo?
 ---------
