@@ -130,6 +130,38 @@ Regras:
 | 3°     | Se não existe aresta peso = infinito    |                                      |
 | 4°     | Se existir aresta peso = peso da aresta |                                      |
 
+Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa.
+
+Outra regra adicionada recentemente é quanto a números negativos, que não serão tratados a fundo neste handout, porém é importante você saber que um dos pontos diferenciais do Algoritmo de Floyd-Warshall é que ele consegue tratar arestas com pesos negativos normalmente. Então se você se deparar com alguma situação destar apenas implemente o exercício normalmente que o resultado deve ser o esperado.
+
+Implementação do Algoritmo
+---------
+
+Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo.
+
+``` C
+int **floydWarshall(int grafo[][], int n) {
+    int **dist = grafo;
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (dist[i][j] > dist[i][k] + dist[k][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+    return dist;
+}
+```
+
+Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por [][], mas que também pode ser representada por ** - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
+
+
+Exercícios
+---------
+
+
 Desafios
 ---------
 

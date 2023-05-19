@@ -146,6 +146,26 @@
 </tr>
 </tbody>
 </table></figure>
+<p>Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa.</p>
+<p>Outra regra adicionada recentemente é quanto a números negativos, que não serão tratados a fundo neste handout, porém é importante você saber que um dos pontos diferenciais do Algoritmo de Floyd-Warshall é que ele consegue tratar arestas com pesos negativos normalmente. Então se você se deparar com alguma situação destar apenas implemente o exercício normalmente que o resultado deve ser o esperado.</p>
+<h2>Implementação do Algoritmo</h2>
+<p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo.</p>
+<pre><code class="language-C">int **floydWarshall(int grafo[][], int n) {
+    int **dist = grafo;
+    for (int k = 0; k &lt; n; k++) {
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; n; j++) {
+                if (dist[i][j] &gt; dist[i][k] + dist[k][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+    return dist;
+}
+</code></pre>
+<p>Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por [][], mas que também pode ser representada por ** - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.</p>
+<h2>Exercícios</h2>
 <h2>Desafios</h2>
 <blockquote class="question">
 <p>Desafio 1 - Google Maps</p>
