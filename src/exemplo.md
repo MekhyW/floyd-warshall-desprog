@@ -81,24 +81,29 @@ Tenho certeza que você nem tentou resolver e já abriu o gabarito. Mas tudo bem
 Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado, para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial.
 
 
-Implementação em Alto Nível | Como Funciona o Algoritmo?
+O que é o Algoritmo Floyd-Warshall
 ---------
 
-Após apresentado o problema que o Algoritmo propõe resolver, será abordado mais a fundo como este algoritmo funciona, quais os inputs e outputs esperados em sua implementação e demonstrado alguns exemplos práticos.
+Floyd-Warshall é um algoritmo que utiliza de programação dinâmica para encontrar todos os caminhos entre todos os Nodos de um Grafo/Matriz, dos encontrados seleciona os menores e guarda eles em uma Matriz de mesma dimensão da inicial.
 
-Iniciando por seu Input, o Floyd Warshall recebe um Grafo - uma matriz de pesos, que representam a complexidade de viajar de um ponto até outro, ou, em outras palavras os pesos das arestas. E utiliza de 3 loops de for para passar por todos os elementos do Grafo recebido. Como é possível ver, abaixo têm uma representação de como seria implementado deste algoritmo:
+Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo.
 
-Pseudocódigo em Python:
+:Matrizes
 
-```python
-def floydWarshall (grafo):
-    dist = grafo
-    for k in range (n):
-        for i in range (n):
-            for j in range (n):
-                if dist[i][j] > dist[i][j] + dist[k][j]:
-                    dist[i][j] = dist[i][k] + dist[k][j]
-    return dist
+O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
+
+Para entender como o algoritmo funciona, é necessário entender como ele é implementado a nível de código, visto que a nível teórico já foi explicado.
+
+``` pseudocode
+função floydWarshall recebe Grafo:
+    distância = Grafo
+    Para k de 0 até tamanho da matriz:
+        Para i de 0 até tamanho da matriz:
+            Para j de 0 até tamanho da matriz:
+                Se distância[i][j] > distância[i][k] + distância[k][j]:
+                    distância[i][j] = distância[i][k] + distância[k][j]
+
+    retorne distância
 ```
 
 ??? Checkpoint
@@ -117,11 +122,6 @@ Animação
 ---------
 
 Buscando entender melhor como o pseudocódigo interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:
-
-Matriz de Paths
----------
-
-:Matrizes
 
 É de grande importância que ambas as animações sejam passadas em conjunto
 
