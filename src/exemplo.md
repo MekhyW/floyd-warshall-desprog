@@ -118,19 +118,6 @@ E qual a complexidade de espaço? Lembre-se que o algoritmo recebe uma matriz de
 A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².
 ???
 
-Animação
----------
-
-Buscando entender melhor como o pseudocódigo interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:
-
-É de grande importância que ambas as animações sejam passadas em conjunto
-
-??? Checkpoint
-Para o primeiro passo do algoritmo, vemos que a coluna principal da matriz de distâncias é inteira preenchida com 0. Por que será que isso acontece?
-::: Gabarito
-Isso acontece pois a distância de um nó para ele mesmo é 0! Logo, a coluna principal é preenchida com 0.
-???
-
 Desafios
 ---------
 

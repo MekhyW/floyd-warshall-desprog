@@ -113,15 +113,44 @@
 <p>A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².</p>
 </details>
 </blockquote>
-<h2>Animação</h2>
-<p>Buscando entender melhor como o pseudocódigo interage com a matriz de grafos levando a construção de uma nova Matriz que terá os menores caminhos abaixo encontram-se duas animações. A primeira é a animação de Nodes e a segunda de Matrizes:</p>
-<p>É de grande importância que ambas as animações sejam passadas em conjunto</p>
+<h2>Desafios</h2>
 <blockquote class="question">
-<p>Checkpoint</p>
-<p>Para o primeiro passo do algoritmo, vemos que a coluna principal da matriz de distâncias é inteira preenchida com 0. Por que será que isso acontece?</p>
+<p>Desafio 1 - Google Maps</p>
+<figure class="img"><img src="img/googlemaps.jpg" alt="" style="max-height: 15em;"></figure>
+<p>Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de usuários em relação à performance do aplicativo. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem compilada, mais rápida do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Como você é experiente em linguagem C, resolveu implementar o algoritmo nessa linguagem.</p>
+<p>Desenvolva uma função <code class="language-c">floydWarshall</code>, que recebe como argumentos uma matriz de adjacência <code class="language-c">grafo</code> e o número de vértices <code class="language-c">n</code>, e retorna a matriz de distâncias <code class="language-c">dist</code>.</p>
+<p>Dica: Parta do código em Python apresentado anteriormente. Como ficariam os tipos de dados?</p>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>Isso acontece pois a distância de um nó para ele mesmo é 0! Logo, a coluna principal é preenchida com 0.</p>
+<pre><code class="language-c">int **floydWarshall(int grafo[][], int n) {
+    int **dist = grafo;
+    for (int k = 0; k &lt; n; k++) {
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; n; j++) {
+                if (dist[i][j] &gt; dist[i][k] + dist[k][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+    return dist;
+}
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Desafio 2 - Rede social</p>
+<p>A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é modelado por um vértice e cada conexão entre amigos é modelada por uma aresta. A distância entre dois amigos é dada pelo número de arestas que separam os dois vértices.</p>
+<figure class="img"><img src="img/social.png" alt="" style="max-height: 20em;"></figure>
+<p>O professor dessa disciplina, que é muito querido pelos alunos, quer saber qual é o par de amigos que está mais distante um do outro. Para isso vamos utilizar o algoritmo de Floyd Warshall para calcular a matriz de distâncias entre todos os pares de amigos.</p>
+<p>Qual a dimensionalidade da matriz de adjacência? Represente a matriz de distâncias na PRIMEIRA iteração do algoritmo de Floyd Warshall, e no FINAL da última iteração (com todas as distâncias calculadas).</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>A matriz tem dimensionalidade 7x7, pois existem 7 vértices.</p>
+<p>Após a primeira iteração, a matriz é a mesma da matriz de adjacência:</p>
+<figure class="img"><img src="img/social-resposta-a.png" alt="" style="max-height: 20em;"></figure>
+<p>Após a última iteração, a matriz é a seguinte:</p>
+<figure class="img"><img src="img/social-resposta-b.png" alt="" style="max-height: 20em;"></figure>
 </details>
 </blockquote>
 
