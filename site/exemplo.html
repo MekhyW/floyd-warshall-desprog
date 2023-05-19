@@ -24,6 +24,23 @@
             <main>
 
 <h1>Algoritmo de Floyd-Warshall</h1>
+<h2>Grafos como Matrizes</h2>
+<figure class="img"><img src="img/Nodes/Node0.png" alt=""></figure>
+<p>Este é um exemplo de grafo muito utilizado, existem 4 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>
+<p>Este formato pode ir desde listas, pilhas, filas… porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.</p>
+<figure class="img"><img src="img/Matrizes/Matriz95.png" alt=""></figure>
+<p>Mas como que uma matriz pode representar um grafo? A resposta é simples, cada linha e coluna da matriz representa um nodo, e o valor da interseção entre a linha e a coluna representa o peso da aresta que conecta os dois nodos.</p>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>Utilizando o Grafo 3x3 abaixo, qual vai ser a matriz dele?</p>
+<figure class="img"><img src="img/exemplo-1.png" alt=""></figure>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³).</p>
+<figure class="img"><img src="img/matriz-exemplo.png" alt=""></figure>
+</details>
+</blockquote>
+<p>Se temos os pesoss de uma matriz</p>
 <h2>Problema dos menores caminhos</h2>
 <p>Motivação do problema:</p>
 <figure class="img"><img src="img/cubo.jpeg" alt="" style="max-height: 7em;"></figure>
