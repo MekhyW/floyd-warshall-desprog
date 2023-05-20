@@ -11,10 +11,9 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 Grafos como Matrizes
 ---------
 
-![](Exemplos/Grafo-Exemplo1.png)
-![](Exemplos/Matriz-Grafo1.png)
+![](Exemplos/Grafo-Exemplo1.png|15)
 
-Este é um exemplo de grafo muito utilizado, existem 4 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
+Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
 
 Este formato pode ir desde listas, pilhas, filas... porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.
 
@@ -26,6 +25,8 @@ Mas como que uma matriz pode representar um grafo? Para isso existem regras de c
 4. Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.
 
 A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.
+
+![](Exemplos/Matriz-Grafo1.png|20)
 
 *Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.*
 
@@ -41,7 +42,7 @@ Qual a matriz de pesos do Grafo abaixo?
 Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
-Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos. Pensei na melhor forma de encontrar o menor caminho e aplique este formato nos checkpoints abaixo.
+Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos. Pense na melhor forma de encontrar o menor caminho e aplique este formato nos checkpoints abaixo.
 
 ??? Checkpoint
 Qual o menor caminho entre o Nodo A e B?
@@ -68,7 +69,7 @@ O menor caminho entre B e C é ir pelo nodo A que têm peso 5 e depois ir para o
 Você deve estar achando o problema muito fácil, basta analisarmos os nodos e seus pesos e encontrarmos o caminho com menor peso. Porém, perceba que estamos apenas buscando pesos entre dois nodos de um Grafo com 3 nodos. Se aumentarmos o tamanho do problema e pedirmos para encontrar todos os menores caminhos em todos os nodos consumirá mais tempo.
 
 ??? Checkpoint
-Qual o menor caminho entre todos os nodos?
+Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?
 
 ![](Exemplos/Grafo-Checkpoint3-desafio.png)
 
@@ -92,7 +93,22 @@ Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das pr
 
 O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
 
-Para entender como o algoritmo funciona, é necessário entender como ele é implementado a nível de código, visto que a nível teórico já foi explicado.
+Na verdade, o algoritmo não trava o nó. O conceito de "travar" se da pelo fato de não fazer sentido usar o nó em questão para o calculo da distância, visto que o nó em questão é o nó de origem do caminho.
+
+Desta forma, quando calculamos a matriz de distâncias, o resultado previo, é a menor distancia considerando apenas os nós ja percorridos. 
+
+Imagine que você está calculando as distâncias, e "travou" o nó A. Isso significa que o resultado final é o melhor caminho entre A e os outros nodos, porém, este caminho pode ser melhorado se considerarmos o nó B, que é o próximo nó a ser percorrido. E por sua vez, é melhor que a matriz inicial, que não considera nenhum nó.
+
+Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.
+
+Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.
+
+Tente implementar o pseudocódigo, olhe o checkpoint depois de tentar um pouco, você é capaz!
+
+??? Checkpoint
+Implemente o algoritmo de Floyd-Warshall em pseudocódigo.
+
+::: Gabarito
 
 ``` pseudocode
 função floydWarshall recebe Grafo:
@@ -105,6 +121,8 @@ função floydWarshall recebe Grafo:
 
     retorne distância
 ```
+
+???
 
 ??? Checkpoint
 Olhando apenas para esse pseudocódigo, você consegue dizer qual a complexidade de tempo desse algoritmo?
@@ -130,14 +148,19 @@ Regras:
 | 3°     | Se não existe aresta peso = infinito    |                                      |
 | 4°     | Se existir aresta peso = peso da aresta |                                      |
 
-Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa.
+Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa. A nível de código, algumas linguagens aceitam o uso de infinito, porém outras não, então você pode utilizar um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.
 
 Outra regra adicionada recentemente é quanto a números negativos, que não serão tratados a fundo neste handout, porém é importante você saber que um dos pontos diferenciais do Algoritmo de Floyd-Warshall é que ele consegue tratar arestas com pesos negativos normalmente. Então se você se deparar com alguma situação destar apenas implemente o exercício normalmente que o resultado deve ser o esperado.
 
 Implementação do Algoritmo
 ---------
 
-Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo.
+Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritm em C.
+
+??? Checkpoint
+Tente implementar o algoritmo de Floyd-Warshall em C. Lembre que pode olhar o gabarito do pseudocódigo para te ajudar !
+
+::: Gabarito
 
 ``` C
 int **floydWarshall(int grafo[][], int n) {
@@ -154,6 +177,8 @@ int **floydWarshall(int grafo[][], int n) {
     return dist;
 }
 ```
+
+???
 
 Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por "[ ][ ]", mas que também pode ser representada por "**" - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
 
@@ -172,15 +197,24 @@ Exercícios
 
     Implemente o código em C para encontrar todos os caminhos mais curtos entre todos os nodos do grafo. Utilizando a função floydWarshall.
 
-- Parte 3: Construa a Matriz de Distâncias
+- Parte 3: Construa a Matriz de Distâncias, após a execução do algoritmo
 
     Construa a matriz de distâncias do grafo acima. Utilizando as Regras definitivas.
 
 ::: Gabarito
 
+::: Parte 1
+
 - Parte 1: Matriz de Pesos
 
     ![](Gabarito1-exercicio1.png)
+
+::: Parte 2
+
+    Simplesmente chame a função floydWarshall passando a matriz de pesos corretamente. Lembre que infito pode ser interpretado como um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.
+
+::: Parte 3
+
 
 ???
 
@@ -222,7 +256,7 @@ A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigo
 
 ![](social.png|20)
 
-O professor dessa disciplina, que é muito querido pelos alunos, quer saber qual é o par de amigos que está mais distante um do outro. Para isso vamos utilizar o algoritmo de Floyd Warshall para calcular a matriz de distâncias entre todos os pares de amigos.
+O professor dessa disciplina, que é muito querido pelos alunos, quer saber quão distante são os amigos, para estreitar as relações. Para isso vamos utilizar o algoritmo de Floyd Warshall para calcular a matriz de distâncias entre todos os pares de amigos.
 
 Qual a dimensionalidade da matriz de adjacência? Represente a matriz de distâncias na PRIMEIRA iteração do algoritmo de Floyd Warshall, e no FINAL da última iteração (com todas as distâncias calculadas). Use o código que você criou!
 ::: Gabarito
