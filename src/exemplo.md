@@ -8,6 +8,8 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 
 ![](cubo-arvore.png|20)
 
+"O cubo mágico é um exemplo de um grafo de estados. Com as menores distâncias, podemos passar de uma configuração para outra o mais rápido possível!"
+
 Grafos como Matrizes
 ---------
 
@@ -214,7 +216,7 @@ Exercícios
     Simplesmente chame a função floydWarshall passando a matriz de pesos corretamente. Lembre que infito pode ser interpretado como um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.
 
 ::: Parte 3
-
+![](Gabarito1-exercicio3.png)
 
 ???
 
@@ -258,7 +260,7 @@ A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigo
 
 O professor dessa disciplina, que é muito querido pelos alunos, quer saber quão distante são os amigos, para estreitar as relações. Para isso vamos utilizar o algoritmo de Floyd Warshall para calcular a matriz de distâncias entre todos os pares de amigos.
 
-Qual a dimensionalidade da matriz de adjacência? Represente a matriz de distâncias na PRIMEIRA iteração do algoritmo de Floyd Warshall, e no FINAL da última iteração (com todas as distâncias calculadas). Use o código que você criou!
+Quais são as dimensões da matriz? Desenhe ela na PRIMEIRA iteração do algoritmo, e no FINAL da última iteração. Use o código que você criou!
 ::: Gabarito
 A matriz tem dimensionalidade 7x7, pois existem 7 vértices.
 
