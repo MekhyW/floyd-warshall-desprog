@@ -204,38 +204,6 @@
 </details>
 </blockquote>
 <h2>Implementação do Algoritmo</h2>
-<p>Em resumo, vamos usar as seguintes regras para implementar o algoritmo:</p>
-<figure class="table"><table>
-<thead>
-<tr>
-<th>Regras</th>
-<th>Teória</th>
-<th>Prática</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1°</td>
-<td>Matriz deve ser quadrada</td>
-<td>Deve navegar todas as possibilidades</td>
-</tr>
-<tr>
-<td>2°</td>
-<td>Nodo A -&gt; Nodo A = 0</td>
-<td>Não modificar input diretamente</td>
-</tr>
-<tr>
-<td>3°</td>
-<td>Se não existe aresta peso = infinito</td>
-<td></td>
-</tr>
-<tr>
-<td>4°</td>
-<td>Se existir aresta peso = peso da aresta</td>
-<td></td>
-</tr>
-</tbody>
-</table></figure>
 <p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:</p>
 <pre><code class="language-C">int **floydWarshall(int grafo[][], int n) {
     int **dist = grafo;

@@ -243,15 +243,6 @@ A matriz final representa o menor caminho possível entre todos os nodos, consid
 Implementação do Algoritmo
 ---------
 
-Em resumo, vamos usar as seguintes regras para implementar o algoritmo:
-
-| Regras | Teória                                  | Prática                              |
-|--------|-----------------------------------------|--------------------------------------|
-| 1°     | Matriz deve ser quadrada                | Deve navegar todas as possibilidades |
-| 2°     | Nodo A -> Nodo A = 0                    | Não modificar input diretamente      |
-| 3°     | Se não existe aresta peso = infinito    |                                      |
-| 4°     | Se existir aresta peso = peso da aresta |                                      |
-
 Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:
 
 ``` C
