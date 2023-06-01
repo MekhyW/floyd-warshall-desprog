@@ -73,6 +73,8 @@ Você deve estar achando o problema muito fácil, basta analisarmos os nodos e s
 ??? Checkpoint
 Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?
 
+OBS: **Não gaste mais do que 1 minuto nesse Checkpoint!**
+
 ![](Exemplos/Grafo-Checkpoint3-desafio.png)
 
 ::: Gabarito
