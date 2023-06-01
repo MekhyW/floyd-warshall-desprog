@@ -52,12 +52,9 @@ Mas como que uma matriz pode representar um grafo? Para isso existem regras de c
 
 1. A matriz deve ser quadrada, ou seja, o número de linhas deve ser igual ao número de colunas.
 2. A distância/peso de um Node para ele mesmo é igual a 0.
-3. Se não existe uma aresta entre dois Nodes, o peso é igual a zero.
-4. Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.
+3. Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.
 
-A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.
-
-*Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.*
+*Dica: Construa a Matriz das linhas para as colunas. Então se estiver na linha A e coluna B, ou seja, MATRIZ[A][B], essa posição é preenchida com a distância saindo de A e indo para B. Resumindo, você sai pelas linhas e chega pelas colunas !*
 
 ??? Checkpoint
 Qual a matriz de pesos do Grafo abaixo?

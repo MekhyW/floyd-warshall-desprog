@@ -54,11 +54,9 @@
 <ol>
 <li>A matriz deve ser quadrada, ou seja, o número de linhas deve ser igual ao número de colunas.</li>
 <li>A distância/peso de um Node para ele mesmo é igual a 0.</li>
-<li>Se não existe uma aresta entre dois Nodes, o peso é igual a zero.</li>
 <li>Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.</li>
 </ol>
-<p>A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.</p>
-<p><em>Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.</em></p>
+<p><em>Dica: Construa a Matriz das linhas para as colunas. Então se estiver na linha A e coluna B, ou seja, MATRIZ[A][B], essa posição é preenchida com a distância saindo de A e indo para B. Resumindo, você sai pelas linhas e chega pelas colunas !</em></p>
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual a matriz de pesos do Grafo abaixo?</p>
