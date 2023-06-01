@@ -39,6 +39,8 @@ Isso significa que é impossível ir de São Paulo a Ilha Bela? Claro que não! 
 
 ![](Balsa/2.png|18)
 
+De maneira análoga, se quisermos ir de São Paulo até São Paulo, o peso é 0, pois não precisamos sair de São Paulo para chegar em São Paulo. O peso de um vértice para ele mesmo é sempre 0.
+
 Grafos como Matrizes
 ---------
 
