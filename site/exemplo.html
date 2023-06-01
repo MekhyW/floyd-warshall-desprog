@@ -74,6 +74,7 @@
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?</p>
+<p>OBS: <strong>Não gaste mais do que 1 minuto nesse Checkpoint!</strong></p>
 <figure class="img"><img src="img/Principal/gigante.png" alt="" style="max-height: 14em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
@@ -114,22 +115,6 @@
 <p>Imagine que você está calculando as distâncias, e “travou” o nó A. Isso significa que o resultado final é o melhor caminho entre A e os outros nodos, porém, este caminho pode ser melhorado se considerarmos o nó B, que é o próximo nó a ser percorrido. E por sua vez, é melhor que a matriz inicial, que não considera nenhum nó.</p>
 <p>Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.</p>
 <p>Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.</p>
-<blockquote class="question">
-<p>Checkpoint</p>
-<p>Olhando apenas para esse pseudocódigo, você consegue dizer qual a complexidade de tempo desse algoritmo?</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³).</p>
-</details>
-</blockquote>
-<blockquote class="question">
-<p>Checkpoint</p>
-<p>E qual a complexidade de espaço? Lembre-se que o algoritmo recebe uma matriz de pesos e retorna uma matriz de distâncias.</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².</p>
-</details>
-</blockquote>
 <p>Agora que todos os conceitos sobre Floyd-Warshall foram demonstrados, você já viu a teória, sabe transformar um Grafo em Matriz e têm ideia de como implementar o código. Vamos voltar para tratar das regras e estabelecer elas definitivamente, principalmente a 3° Regra.</p>
 <h2>Regras:</h2>
 <figure class="table"><table>
@@ -182,6 +167,15 @@
 }
 </code></pre>
 <p>Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por “[ ][ ]”, mas que também pode ser representada por “**” - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.</p>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>Apenas olhando para esse pseudocódigo, você conseguiria dizer qual é a complexidade de tempo desse algoritmo? E a complexidade de espaço?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³).</p>
+<p>A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n². Não cresce mais do que o tamanho da matriz de entrada, pois o algoritmo utiliza a mesma matriz para guardar a matriz de distâncias.</p>
+</details>
+</blockquote>
 <h2>Exercícios</h2>
 <blockquote class="question">
 <p>Exercício 1 - Descobrindo Todos Caminhos mais Curtos</p>
