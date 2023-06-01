@@ -27,17 +27,17 @@
 <h2>Problema dos menores caminhos</h2>
 <p>Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e saber qual o menor caminho entre eles. Esse é o problema dos menores caminhos, e o algoritmo de Floyd-Warshall é uma solução para esse problema.</p>
 <figure class="img"><img src="img/cubo-arvore.png" alt="" style="max-height: 20em;"></figure>
-<p>“O cubo mágico é um exemplo de um grafo de estados. Com as menores distâncias, podemos passar de uma configuração para outra o mais rápido&nbsp;possível!”</p>
+<p>“Com as menores distâncias, podemos passar de uma configuração para outra o mais rapidamente possível!”</p>
 <h2>Grafos com Pesos</h2>
 <p>Neste handout vamos apresentar diversos grafos com pesos, e é importante, antes de começar, entender o que são esses pesos, para que servem e como impactam o problema. Para isso existem alguns cenários muito importantes:</p>
 <ol>
 <li>Peso entre dois nodos.</li>
 </ol>
-<p>O peso entre dois nodos é calculado a partir da complexidade que se têm de viajar de um nodo para o outro. Abaixo têm um exemplo figurativo da complexidade/dificuldade que estes pesos representam.</p>
-<p>Image que você quer conectar dois pontos, A e B. Para isso escolhe o caminho mais rápido e simples, que não têm nenhum obstaculo. Você traça uma linha reta, este caminho terá peso 1.</p>
-<p>Caso existam obstaculos no meio do caminho, como pedras, vulcões, cavernas… você terá que desviar deles, e portanto, o caminho terá um peso maior que 1, neste caso escolhemos 5.</p>
+<p>O peso entre dois nós é calculado a partir da complexidade de se viajar de um nó para o outro. Abaixo temos um exemplo figurativo da complexidade/dificuldade que esses pesos representam.</p>
+<p>Imagine que você queira conectar dois pontos, A e B. Para isso, escolhe o caminho mais rápido e simples, que não tem nenhum obstáculo. Você traça uma linha reta, e esse caminho terá peso 1.</p>
+<p>Caso existam obstáculos no meio do caminho, como pedras, vulcões, cavernas… você terá que desviar deles e, portanto, o caminho terá um peso maior que 1. Nesse caso, escolhemos 5 como peso.</p>
 <div class="animation"><img class="frame" src="img/Caminho/caminho0.png" alt="1"><img class="frame" src="img/Caminho/caminho1.png" alt="2"><img class="frame" src="img/Caminho/caminho2.png" alt="3"></div>
-<p>Tudo bem que tudo isso é no mundo figurativo, na realidade estes pesos podem representar muito mais do que meros obstaculos, podem ser a distância em KM entre dois pontos, a quantidade de combustivel gasto, o tempo de percurso, entre diversos outros pontos que não serão discutidos ou levados em consideração quando falarmos de pesos.</p>
+<p>Tudo bem que tudo isso é no mundo figurativo, na realidade esses pesos podem representar muito mais do que meros obstáculos, podem ser a distância em KM entre dois pontos, a quantidade de combustível gasto, o tempo de percurso, entre diversos outros pontos que não serão discutidos ou levados em consideração quando falarmos de pesos.</p>
 <ol start="2">
 <li>Pesos infinitos</li>
 </ol>
@@ -265,7 +265,7 @@
 <blockquote class="question">
 <p>Desafio 1 - Google Maps</p>
 <figure class="img"><img src="img/googlemaps.jpg" alt="" style="max-height: 15em;"></figure>
-<p>Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, a Google vem recebendo muitas reclamações de desenvolvedores, muitos dos quais pedem um novo client. Portanto, Você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem interpretada, mais flexível do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Esse algoritmo, entretanto, precisa de uma modificação em relação ao clássico: Ele precisa receber como argumento uma segunda matriz, que representa o tempo de viagem entre os pontos. A matriz de distâncias deve ser calculada com base na matriz de tempos, e não na matriz de adjacência.</p>
+<p>Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, o Google tem recebido muitas reclamações de desenvolvedores, muitos dos quais pedem um novo cliente. Portanto, você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem interpretada, mais flexível do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Esse algoritmo, entretanto, precisa de uma modificação em relação ao clássico: ele precisa receber como argumento uma segunda matriz que representa o tempo de viagem entre os pontos. A matriz de distâncias deve ser calculada com base na matriz de tempos e não na matriz de adjacência.</p>
 <p>Desenvolva uma função <code class="language-c">floydWarshall</code>, que recebe como argumentos uma matriz de adjacência <code class="language-c">grafo</code> e o número de vértices <code class="language-c">n</code>, e retorna a matriz de distâncias <code class="language-c">dist</code>, com a modificação pedida.</p>
 <p>Dica: Parta do código em C apresentado anteriormente.</p>
 <details class="answer">
@@ -285,14 +285,14 @@
                     dist[i][j] = dist[i][k] + dist[k][j] + tempos[i][j]        
     return dist
 </code></pre>
-<p>A matriz tempos representa a matriz de tempos de viagem, onde tempos[i][j] é o tempo de viagem entre o vértice i e o vértice j. A matriz de adjacência grafo representa o grafo, onde grafo[i][j] é o peso da aresta entre o vértice i e o vértice j. A matriz de distâncias dist é a matriz de distâncias entre todos os pares de vértices, onde dist[i][j] é a distância entre o vértice i e o vértice j.</p>
+<p>A matriz “tempos” representa a matriz de tempos de viagem, onde “tempos[i][j]” é o tempo de viagem entre o vértice i e o vértice j. A matriz de adjacência “grafo” representa o grafo, onde “grafo[i][j]” é o peso da aresta entre o vértice i e o vértice j. A matriz de distâncias “dist” é a matriz de distâncias entre todos os pares de vértices, onde “dist[i][j]” é a distância entre o vértice i e o vértice j.</p>
 </details>
 </blockquote>
 <blockquote class="question">
 <p>Desafio 2 - Rede social</p>
-<p>A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é modelado por um vértice e cada conexão entre amigos é modelada por uma aresta. A distância entre dois amigos é dada pelo número de arestas que separam os dois vértices.</p>
+<p>A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é representado por um vértice e cada conexão entre amigos é representada por uma aresta. A distância entre dois amigos é determinada pelo número de arestas que os separam.</p>
 <figure class="img"><img src="img/social.png" alt="" style="max-height: 20em;"></figure>
-<p>O professor dessa disciplina, que é muito querido pelos alunos, quer saber quão distante são os amigos, para estreitar as relações. Para isso vamos utilizar o algoritmo de Floyd Warshall para calcular a matriz de distâncias entre todos os pares de amigos.</p>
+<p>O professor dessa disciplina, que é muito querido pelos alunos, deseja saber quão distantes são os amigos, a fim de estreitar as relações. Para isso, vamos utilizar o algoritmo de Floyd-Warshall para calcular a matriz de distâncias entre todos os pares de amigos.</p>
 <p>Quais são as dimensões da matriz? Desenhe ela na PRIMEIRA iteração do algoritmo, e no FINAL da última iteração. Use o código que você criou!</p>
 <details class="answer">
 <summary>Gabarito</summary>
