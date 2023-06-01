@@ -127,13 +127,11 @@ Primeiro, vamos analisar o grafo abaixo:
 
 Nessse ponto, sem considerar nenhum nó intermediario, a melhor maneira de sair de um nodo e chegar em outro é pela aresta que liga os dois, e se não há uma, assumimos peso infinito. Porém, se considerarmos um nó intermediario, podemos começamos a brincar.
 
-Agora vamos considerar este problema:
+Agora vamos considerar este desenvolvimento:
 
 :Matrizes
 
-Como você deve ter percebido, o caminho passando por D é mais rápido, e portanto, o caminho de C para A passando por D é o menor caminho. 
-
-Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos criar uma regra para isso.
+Mas qual a melhor forma de fazer isso? Vamos então criar uma métodologia, para isso:
 
 Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.
 
