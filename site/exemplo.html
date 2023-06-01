@@ -41,9 +41,11 @@
 <ol start="2">
 <li>Pesos infinitos</li>
 </ol>
-<p>Como será apresentado mais a frente deste handout, existe uma ideia de caminho com complexidade infinita, que é o caso em que dois nodos não têm uma conexão direta entre sí, havendo necessidade de passar por outro nodo.</p>
-<p>Para representar este caso, utilizamos o peso infinito, que é representado por um número muito grande, como 9999999999, ou tão grande quanto o tipo de dado utilizado permitir.</p>
-<p>Como você verá, está ideia será melhor apresentada ao decorrer do handout.</p>
+<p>E se não houver um caminho entre dois nodos? Como representar isso? Para isso, utilizamos o conceito de infinito, que representa algo tão grande que não é possível alcançar. Portanto, se não existe um caminho entre dois nodos, o peso é infinito.</p>
+<p>Imagine que você gostaria de ir de São Paulo a Ilha Bela, porém, não existe uma ponte que liga os dois pois existe um rio no meio do caminho. O peso entre São Paulo e Ilha Bela é infinito.</p>
+<figure class="img"><img src="img/Balsa/1.png" alt="" style="max-height: 18em;"></figure>
+<p>Isso significa que é impossível ir de São Paulo a Ilha Bela? Claro que não! Precisamos de uma balsa. Ou seja, precisamos de um intermediario para chegar em Ilha Bela. Nosso algoritmo irá encontrar este intermediario e atualizar o “infinito” para o peso real do caminho, que é o peso de São Paulo até a balsa + o peso da balsa até Ilha Bela.</p>
+<figure class="img"><img src="img/Balsa/2.png" alt="" style="max-height: 18em;"></figure>
 <h2>Grafos como Matrizes</h2>
 <figure class="img"><img src="img/Principal/intro.png" alt="" style="max-height: 18em;"></figure>
 <p>Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>

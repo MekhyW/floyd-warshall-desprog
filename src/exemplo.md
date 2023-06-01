@@ -29,11 +29,15 @@ Tudo bem que tudo isso é no mundo figurativo, na realidade estes pesos podem re
 
 2. Pesos infinitos
 
-Como será apresentado mais a frente deste handout, existe uma ideia de caminho com complexidade infinita, que é o caso em que dois nodos não têm uma conexão direta entre sí, havendo necessidade de passar por outro nodo.
+E se não houver um caminho entre dois nodos? Como representar isso? Para isso, utilizamos o conceito de infinito, que representa algo tão grande que não é possível alcançar. Portanto, se não existe um caminho entre dois nodos, o peso é infinito.
 
-Para representar este caso, utilizamos o peso infinito, que é representado por um número muito grande, como 9999999999, ou tão grande quanto o tipo de dado utilizado permitir.
+Imagine que você gostaria de ir de São Paulo a Ilha Bela, porém, não existe uma ponte que liga os dois pois existe um rio no meio do caminho. O peso entre São Paulo e Ilha Bela é infinito.
 
-Como você verá, está ideia será melhor apresentada ao decorrer do handout.
+![](Balsa/1.png|18)
+
+Isso significa que é impossível ir de São Paulo a Ilha Bela? Claro que não! Precisamos de uma balsa. Ou seja, precisamos de um intermediario para chegar em Ilha Bela. Nosso algoritmo irá encontrar este intermediario e atualizar o "infinito" para o peso real do caminho, que é o peso de São Paulo até a balsa + o peso da balsa até Ilha Bela.
+
+![](Balsa/2.png|18)
 
 Grafos como Matrizes
 ---------
