@@ -43,7 +43,7 @@ Qual a matriz de pesos do Grafo abaixo?
 Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
-Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos. Pense na melhor forma de encontrar o menor caminho e aplique este formato nos checkpoints abaixo.
+Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos.
 
 ??? Checkpoint
 Qual o menor caminho entre o Nodo A e B?
