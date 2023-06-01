@@ -29,8 +29,7 @@
 <figure class="img"><img src="img/cubo-arvore.png" alt="" style="max-height: 20em;"></figure>
 <p>“O cubo mágico é um exemplo de um grafo de estados. Com as menores distâncias, podemos passar de uma configuração para outra o mais rápido&nbsp;possível!”</p>
 <h2>Grafos como Matrizes</h2>
-<p><img src="img/Principal/grafo-principal.png" alt="" style="max-height: 18em;">
-<img src="img/Principal/matriz-principal.png" alt="" style="max-height: 16em;"></p>
+<figure class="img"><img src="img/Principal/intro.png" alt="" style="max-height: 18em;"></figure>
 <p>Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>
 <p>Este formato pode ir desde listas, pilhas, filas… porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.</p>
 <p>Mas como que uma matriz pode representar um grafo? Para isso existem regras de construção:</p>
@@ -92,11 +91,23 @@
 <figure class="img"><img src="img/What-is/matriz-whatis.png" alt="" style="max-height: 18em;"></figure>
 <p>Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.</p>
 <p>Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.</p>
-<p>Vamos considerar o nodo A como intermediario, e verificar se ao invés de ir direto de B para C por exemplo, passando por A não é mais vantajoso. Para isso, vamos analisar o caminho de B para A, e de A para C, e somar os pesos. Se essa soma for menor que o caminho direto, então o caminho por A é melhor.</p>
+<p>Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não seria mais rápido passando por D.</p>
 <div class="animation"><img class="frame" src="img/Caminho/caminho0.png" alt="1"><img class="frame" src="img/Caminho/caminho1.png" alt="2"><img class="frame" src="img/Caminho/caminho2.png" alt="3"></div>
-<p>Como vamos usar o nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, basta analisar a submatriz que não contém o nodo A.</p>
-<p>DESENHAR MATRIZ RISCADA NA LINHA A E COLUNA A</p>
+<p>Agora vamos considerar este problema:</p>
 <div class="animation"><img class="frame" src="img/Matrizes/Matriz0.png" alt="1"><img class="frame" src="img/Matrizes/Matriz1.png" alt="2"><img class="frame" src="img/Matrizes/Matriz2.png" alt="3"><img class="frame" src="img/Matrizes/Matriz3.png" alt="4"><img class="frame" src="img/Matrizes/Matriz4.png" alt="5"><img class="frame" src="img/Matrizes/Matriz5.png" alt="6"><img class="frame" src="img/Matrizes/Matriz6.png" alt="7"><img class="frame" src="img/Matrizes/Matriz7.png" alt="8"></div>
+<p>Como você deve ter percebido, o caminho passando por D é mais rápido, e portanto, o caminho de C para A passando por D é o menor caminho.</p>
+<p>Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos criar uma regra para isso.</p>
+<p>Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.</p>
+<p>Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.</p>
+<p>COLOCAR ANIMAÇÃO DAS COMPAREÇÕES PARA O NODO A</p>
+<p>A pergunta que precisamos fazer é:</p>
+<p>BC &gt; BA + AC ?</p>
+<p>2 &gt; 8 + inf ? FALSOO NÃO MUDAMOS</p>
+<p>BD &gt; BA + AD ?</p>
+<p>inf &gt; 8 + 7 ? SIMMMMMM temos um caminho mais curto</p>
+<p>Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente uns 2 min, após isso vá para o gabarito.</p>
+<p>Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.</p>
+<div class="animation"><img class="frame" src="img/Block/bloc0.png" alt="1"><img class="frame" src="img/Block/bloc1.png" alt="2"><img class="frame" src="img/Block/bloc2.png" alt="3"><img class="frame" src="img/Block/bloc4.png" alt="4"><img class="frame" src="img/Block/bloc5.png" alt="5"><img class="frame" src="img/Block/bloc6.png" alt="6"><img class="frame" src="img/Block/bloc7.png" alt="7"><img class="frame" src="img/Block/bloc8.png" alt="8"><img class="frame" src="img/Block/bloc9.png" alt="9"><img class="frame" src="img/Block/bloc91.png" alt="10"><img class="frame" src="img/Block/bloc92.png" alt="11"></div>
 <p>O primeiro loop foi feito individualmente, e como é possível ver o algoritmo “trava” em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.</p>
 <p>Na verdade, o algoritmo não trava o nó. O conceito de “travar” se da pelo fato de não fazer sentido usar o nó em questão para o calculo da distância, visto que o nó em questão é o nó de origem do caminho.</p>
 <p>Desta forma, quando calculamos a matriz de distâncias, o resultado previo, é a menor distancia considerando apenas os nós ja percorridos.</p>

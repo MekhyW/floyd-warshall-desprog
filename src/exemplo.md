@@ -13,8 +13,7 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 Grafos como Matrizes
 ---------
 
-![](Principal/grafo-principal.png|18)
-![](Principal/matriz-principal.png|16)
+![](Principal/intro.png|18)
 
 Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
 
@@ -108,6 +107,10 @@ Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não 
 
 :Caminho
 
+Agora vamos considerar este problema:
+
+:Matrizes
+
 Como você deve ter percebido, o caminho passando por D é mais rápido, e portanto, o caminho de C para A passando por D é o menor caminho. 
 
 Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos criar uma regra para isso.
@@ -132,9 +135,7 @@ Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente un
 
 Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
 
-DESENHAR MATRIZ RISCADA NA LINHA A E COLUNA A
-
-:Matrizes
+:Block
 
 O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
 
