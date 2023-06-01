@@ -117,31 +117,61 @@
 <p>Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.</p>
 <p>Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.</p>
 <div class="animation"><img class="frame" src="img/NodeA/a0.png" alt="1"><img class="frame" src="img/NodeA/a1.png" alt="2"><img class="frame" src="img/NodeA/a2.png" alt="3"><img class="frame" src="img/NodeA/a3.png" alt="4"><img class="frame" src="img/NodeA/a4.png" alt="5"><img class="frame" src="img/NodeA/a5.png" alt="6"><img class="frame" src="img/NodeA/a6.png" alt="7"></div>
+<blockquote class="question">
+<p>Checkpoint</p>
 <p>A pergunta que precisamos fazer é:</p>
-<ul>
-<li>BC &gt; BA + AC ?</li>
-</ul>
-<p>2 &gt; 8 + inf ? FALSOO NÃO MUDAMOS</p>
-<ul>
-<li>BD &gt; BA + AD ?</li>
-</ul>
-<p>inf &gt; 8 + 7 ? SIM temos um caminho mais curto, então vamos substituir o valor de BD por 15.</p>
-<ul>
-<li>CB &gt; CA + AB ?</li>
-</ul>
-<p>inf &gt; 5 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de CB por 8.</p>
-<ul>
-<li>CD &gt; CA + AD ?</li>
-</ul>
-<p>1 &gt; 5 + 7 ? FALSO NÃO MUDAMOS</p>
-<ul>
-<li>DB &gt; DA + AB ?</li>
-</ul>
-<p>inf &gt; 2 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de DB por 5.</p>
-<ul>
-<li>DC &gt; DA + AC ?</li>
-</ul>
-<p>inf &gt; 2 + inf ? FALSO NÃO MUDAMOS</p>
+<p>BC &gt; BA + AC ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>2 &gt; 8 + inf ?</p>
+<p>FALSOO, então não mudamos.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>BD &gt; BA + AD ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 8 + 7 ?</p>
+<p>SIM, temos um caminho mais curto, então vamos substituir o valor de BD por 15.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>CB &gt; CA + AB ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 5 + 3 ?</p>
+<p>SIM, temos um caminho mais curto, então vamos substituir o valor de CB por 8.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>CD &gt; CA + AD ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>1 &gt; 5 + 7 ?</p>
+<p>FALSO, não mudamos.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>DB &gt; DA + AB ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 2 + 3 ?</p>
+<p>SIM, temos um caminho mais curto, então vamos substituir o valor de DB por 5.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>DC &gt; DA + AC ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 2 + inf ?</p>
+<p>FALSO, não mudamos.</p>
+</details>
+</blockquote>
 <p>UFAAA, terminamos o nodo A.</p>
 <p>Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.</p>
 <p>E agora, o que fazemos ?</p>

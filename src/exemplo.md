@@ -149,31 +149,55 @@ Começando pelo nodo A como intermediario, não precisamos checar a linha A e ne
 
 :NodeA
 
-A pergunta que precisamos fazer é: 
+??? Checkpoint
+A pergunta que precisamos fazer é:
 
-- BC > BA + AC ?
+BC > BA + AC ?
+::: Gabarito
+2 > 8 + inf ? 
 
-2 > 8 + inf ? FALSOO NÃO MUDAMOS
+FALSOO, então não mudamos.
+???
 
-- BD > BA + AD ?
+??? Checkpoint
+BD > BA + AD ?
+::: Gabarito
+inf > 8 + 7 ? 
 
-inf > 8 + 7 ? SIM temos um caminho mais curto, então vamos substituir o valor de BD por 15.
+SIM, temos um caminho mais curto, então vamos substituir o valor de BD por 15.
+???
 
-- CB > CA + AB ? 
+??? Checkpoint
+CB > CA + AB ? 
+::: Gabarito
+inf > 5 + 3 ? 
 
-inf > 5 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de CB por 8.
+SIM, temos um caminho mais curto, então vamos substituir o valor de CB por 8.
+???
 
-- CD > CA + AD ?
+??? Checkpoint
+CD > CA + AD ?
+::: Gabarito
+1 > 5 + 7 ?
 
-1 > 5 + 7 ? FALSO NÃO MUDAMOS
+FALSO, não mudamos.
+???
+ 
+??? Checkpoint
+DB > DA + AB ? 
+::: Gabarito
+inf > 2 + 3 ?
 
-- DB > DA + AB ? 
+SIM, temos um caminho mais curto, então vamos substituir o valor de DB por 5.
+???
 
-inf > 2 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de DB por 5.
+??? Checkpoint
+DC > DA + AC ?
+::: Gabarito
+inf > 2 + inf ?
 
-- DC > DA + AC ?
-
-inf > 2 + inf ? FALSO NÃO MUDAMOS
+FALSO, não mudamos.
+???
 
 UFAAA, terminamos o nodo A. 
 
