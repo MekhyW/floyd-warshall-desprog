@@ -131,8 +131,6 @@ Essa matriz representa todos os caminhos possíveis entre os nodos, e como podem
 
 Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.
 
-Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não seria mais rápido passando por D.
-
 Agora vamos considerar este problema:
 
 :Matrizes
