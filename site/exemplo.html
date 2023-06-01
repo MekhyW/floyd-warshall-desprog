@@ -101,7 +101,6 @@
 <p>Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado, para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial.</p>
 <h2>O que é o Algoritmo Floyd-Warshall</h2>
 <p>Floyd-Warshall é um algoritmo que utiliza de programação dinâmica para encontrar todos os caminhos entre todos os Nodos de um Grafo/Matriz, dos encontrados seleciona os menores e guarda eles em uma Matriz de mesma dimensão da inicial.</p>
-<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
 <p>Então vamos construir o pensamento do algoritmo aos poucos, ok ?</p>
 <p>Primeiro, vamos analisar o grafo abaixo:</p>
 <figure class="img"><img src="img/What-is/grafo-whatis.png" alt="" style="max-height: 18em;"></figure>
@@ -116,7 +115,6 @@
 <p>Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos criar uma regra para isso.</p>
 <p>Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.</p>
 <p>Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.</p>
-<div class="animation"><img class="frame" src="img/NodeA/block0.png" alt="1"><img class="frame" src="img/NodeA/block1.png" alt="2"><img class="frame" src="img/NodeA/block2.png" alt="3"><img class="frame" src="img/NodeA/block3.png" alt="4"><img class="frame" src="img/NodeA/block4.png" alt="5"><img class="frame" src="img/NodeA/block5.png" alt="6"><img class="frame" src="img/NodeA/block6.png" alt="7"></div>
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>A pergunta que precisamos fazer é:</p>
@@ -172,8 +170,9 @@
 <p>FALSO, não mudamos.</p>
 </details>
 </blockquote>
-<p>UFAAA, terminamos o nodo A.</p>
-<p>Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.</p>
+<p>UFAAA, terminamos o nodo A. Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.</p>
+<p>Ficou com alguma dúvida ? Mesmo que não, recomendo que veja a seguinte animação que mostra o processo que acabamos de fazer:</p>
+<div class="animation"><img class="frame" src="img/NodeA/block0.png" alt="1"><img class="frame" src="img/NodeA/block1.png" alt="2"><img class="frame" src="img/NodeA/block2.png" alt="3"><img class="frame" src="img/NodeA/block3.png" alt="4"><img class="frame" src="img/NodeA/block4.png" alt="5"><img class="frame" src="img/NodeA/block5.png" alt="6"><img class="frame" src="img/NodeA/block6.png" alt="7"></div>
 <p>E agora, o que fazemos ?</p>
 <p>Agora vamos considerar o nodo B como intermediario, e repetir o processo. E assim por diante, até o último nodo.</p>
 <blockquote class="question">
@@ -182,7 +181,7 @@
 <details class="answer">
 <summary>Gabarito</summary>
 <figure class="img"><img src="img/Gabarito/passo-gabaritoB.png" alt="" style="max-height: 18em;"></figure>
-<p>No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior.</p>
+<p>No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior, usando as respostas do passo anterior como ponto de partida.</p>
 </details>
 </blockquote>
 <blockquote class="question">
@@ -200,7 +199,8 @@
 <details class="answer">
 <summary>Gabarito</summary>
 <figure class="img"><img src="img/Gabarito/passo-gabaritoD.png" alt="" style="max-height: 18em;"></figure>
-<p>Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios.</p>
+<p>Ufa, deu trabalho né !</p>
+<p>A matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. Além disso, a cada passo melhoramos a nossa resposta, sempre considerando a anterior como entrada, e no final temos os menores caminhos possíveis de todos os nodos indo para todos os nodos.</p>
 </details>
 </blockquote>
 <h2>Implementação do Algoritmo</h2>

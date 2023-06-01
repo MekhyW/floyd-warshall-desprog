@@ -117,8 +117,6 @@ O que é o Algoritmo Floyd-Warshall
 
 Floyd-Warshall é um algoritmo que utiliza de programação dinâmica para encontrar todos os caminhos entre todos os Nodos de um Grafo/Matriz, dos encontrados seleciona os menores e guarda eles em uma Matriz de mesma dimensão da inicial.
 
-<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
-
 Então vamos construir o pensamento do algoritmo aos poucos, ok ?
 
 Primeiro, vamos analisar o grafo abaixo:
@@ -146,8 +144,6 @@ Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos cri
 Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.
 
 Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.
-
-:NodeA
 
 ??? Checkpoint
 A pergunta que precisamos fazer é:
@@ -199,9 +195,12 @@ inf > 2 + inf ?
 FALSO, não mudamos.
 ???
 
-UFAAA, terminamos o nodo A. 
+UFAAA, terminamos o nodo A. Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.
 
-Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.
+
+Ficou com alguma dúvida ? Mesmo que não, recomendo que veja a seguinte animação que mostra o processo que acabamos de fazer:
+
+:NodeA
 
 E agora, o que fazemos ?
 
@@ -214,7 +213,7 @@ Agora que você viu como funciona, tente terminar para o nodo B.
 
 ![](Gabarito/passo-gabaritoB.png|18)
 
-No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior.
+No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior, usando as respostas do passo anterior como ponto de partida.
 
 ???
 
@@ -235,7 +234,9 @@ Tente para o nodo D (prometo que é o último).
 ::: Gabarito
 ![](Gabarito/passo-gabaritoD.png|18)
 
-Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. 
+Ufa, deu trabalho né !
+
+A matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. Além disso, a cada passo melhoramos a nossa resposta, sempre considerando a anterior como entrada, e no final temos os menores caminhos possíveis de todos os nodos indo para todos os nodos.
 
 ???
 
