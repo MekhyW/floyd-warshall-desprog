@@ -111,7 +111,6 @@
 <p>Mas qual a melhor forma de fazer isso? Vamos então criar uma métodologia, para isso:</p>
 <p>Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.</p>
 <p>Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.</p>
-<div class="animation"><img class="frame" src="img/NodeA/block0.png" alt="1"><img class="frame" src="img/NodeA/block1.png" alt="2"><img class="frame" src="img/NodeA/block2.png" alt="3"><img class="frame" src="img/NodeA/block3.png" alt="4"><img class="frame" src="img/NodeA/block4.png" alt="5"><img class="frame" src="img/NodeA/block5.png" alt="6"><img class="frame" src="img/NodeA/block6.png" alt="7"></div>
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>A pergunta que precisamos fazer é:</p>
@@ -168,6 +167,8 @@
 </details>
 </blockquote>
 <p>UFAAA, terminamos o nodo A.</p>
+<p>Outra forma de visualizar as operações feitas é através da animação abaixo:</p>
+<div class="animation"><img class="frame" src="img/NodeA/block0.png" alt="1"><img class="frame" src="img/NodeA/block1.png" alt="2"><img class="frame" src="img/NodeA/block2.png" alt="3"><img class="frame" src="img/NodeA/block3.png" alt="4"><img class="frame" src="img/NodeA/block4.png" alt="5"><img class="frame" src="img/NodeA/block5.png" alt="6"><img class="frame" src="img/NodeA/block6.png" alt="7"></div>
 <p>Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.</p>
 <p>E agora, o que fazemos ?</p>
 <p>Agora vamos considerar o nodo B como intermediario, e repetir o processo. E assim por diante, até o último nodo.</p>
@@ -199,7 +200,7 @@
 </details>
 </blockquote>
 <h2>Implementação do Algoritmo</h2>
-<p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:</p>
+<p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C.</p>
 <pre><code class="language-C">int **floydWarshall(int grafo[][], int n) {
     int **dist = grafo;
     for (int k = 0; k &lt; n; k++) {

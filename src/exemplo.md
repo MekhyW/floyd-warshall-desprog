@@ -137,8 +137,6 @@ Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim po
 
 Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.
 
-:NodeA
-
 ??? Checkpoint
 A pergunta que precisamos fazer é:
 
@@ -189,7 +187,11 @@ inf > 2 + inf ?
 FALSO, não mudamos.
 ???
 
-UFAAA, terminamos o nodo A. 
+UFAAA, terminamos o nodo A.
+
+Outra forma de visualizar as operações feitas é através da animação abaixo:
+
+:NodeA
 
 Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.
 
@@ -232,7 +234,7 @@ Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível e
 Implementação do Algoritmo
 ---------
 
-Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:
+Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C.
 
 ``` C
 int **floydWarshall(int grafo[][], int n) {
