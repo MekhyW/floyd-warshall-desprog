@@ -141,8 +141,6 @@ Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente un
 
 Se você ficou com duvidas, vamos ver como fica as contas:
 
-
-
 Colocar imagem da matriz finalizada em A
 ???
 
