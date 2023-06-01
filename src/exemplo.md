@@ -104,11 +104,33 @@ Essa matriz representa todos os caminhos possíveis entre os nodos, e como podem
 
 Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.
 
-Vamos considerar o nodo A como intermediario, e verificar se ao invés de ir direto de B para C por exemplo, passando por A não é mais vantajoso. Para isso, vamos analisar o caminho de B para A, e de A para C, e somar os pesos. Se essa soma for menor que o caminho direto, então o caminho por A é melhor.
+Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não seria mais rápido passando por D.
 
 :Caminho
 
-Como vamos usar o nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, basta analisar a submatriz que não contém o nodo A.
+Como você deve ter percebido, o caminho passando por D é mais rápido, e portanto, o caminho de C para A passando por D é o menor caminho. 
+
+Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos criar uma regra para isso.
+
+Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.
+
+Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.
+
+COLOCAR ANIMAÇÃO DAS COMPAREÇÕES PARA O NODO A
+
+A pergunta que precisamos fazer é: 
+
+BC > BA + AC ?
+
+2 > 8 + inf ? FALSOO NÃO MUDAMOS
+
+BD > BA + AD ?
+
+inf > 8 + 7 ? SIMMMMMM temos um caminho mais curto
+
+Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente uns 2 min, após isso vá para o gabarito.
+
+Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
 
 DESENHAR MATRIZ RISCADA NA LINHA A E COLUNA A
 
@@ -125,27 +147,6 @@ Imagine que você está calculando as distâncias, e "travou" o nó A. Isso sign
 Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.
 
 Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.
-
-Tente implementar o pseudocódigo, olhe o checkpoint depois de tentar um pouco, você é capaz!
-
-??? Checkpoint
-Implemente o algoritmo de Floyd-Warshall em pseudocódigo.
-
-::: Gabarito
-
-``` pseudocode
-função floydWarshall recebe Grafo:
-    distância = Grafo
-    Para k de 0 até tamanho da matriz:
-        Para i de 0 até tamanho da matriz:
-            Para j de 0 até tamanho da matriz:
-                Se distância[i][j] > distância[i][k] + distância[k][j]:
-                    distância[i][j] = distância[i][k] + distância[k][j]
-
-    retorne distância
-```
-
-???
 
 ??? Checkpoint
 Olhando apenas para esse pseudocódigo, você consegue dizer qual a complexidade de tempo desse algoritmo?
@@ -178,12 +179,7 @@ Outra regra adicionada recentemente é quanto a números negativos, que não ser
 Implementação do Algoritmo
 ---------
 
-Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritm em C.
-
-??? Checkpoint
-Tente implementar o algoritmo de Floyd-Warshall em C. Lembre que pode olhar o gabarito do pseudocódigo para te ajudar !
-
-::: Gabarito
+Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:
 
 ``` C
 int **floydWarshall(int grafo[][], int n) {
@@ -200,8 +196,6 @@ int **floydWarshall(int grafo[][], int n) {
     return dist;
 }
 ```
-
-???
 
 Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por "[ ][ ]", mas que também pode ser representada por "**" - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
 
