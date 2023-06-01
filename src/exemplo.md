@@ -267,7 +267,7 @@ int **floydWarshall(int grafo[][], int n) {
 Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por "[ ][ ]", mas que também pode ser representada por "**" - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
 
 ??? Checkpoint
-Apenas olhando para esse pseudocódigo, você conseguiria dizer qual é a complexidade de tempo desse algoritmo? E a complexidade de espaço?
+Apenas olhando para esse código, você conseguiria dizer qual é a complexidade de tempo desse algoritmo? E a complexidade de espaço?
 ::: Gabarito
 Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³). 
 
