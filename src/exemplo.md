@@ -107,6 +107,12 @@ Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sa
 
 Vamos considerar o nodo A como intermediario, e verificar se ao invés de ir direto de B para C por exemplo, passando por A não é mais vantajoso. Para isso, vamos analisar o caminho de B para A, e de A para C, e somar os pesos. Se essa soma for menor que o caminho direto, então o caminho por A é melhor.
 
+COLOCAR IMAGEM DA COMPARAÇÃO ENTRE CAMINHO
+
+Como vamos usar o nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, basta analisar a submatriz que não contém o nodo A.
+
+DESENHAR MATRIZ RISCADA NA LINHA A E COLUNA A
+
 :Matrizes
 
 O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
