@@ -52,7 +52,7 @@
 <p>Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.</p>
 </details>
 </blockquote>
-<p>Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos. Pense na melhor forma de encontrar o menor caminho e aplique este formato nos checkpoints abaixo.</p>
+<p>Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos.</p>
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual o menor caminho entre o Nodo A e B?</p>
@@ -103,24 +103,6 @@
 <p>Imagine que você está calculando as distâncias, e “travou” o nó A. Isso significa que o resultado final é o melhor caminho entre A e os outros nodos, porém, este caminho pode ser melhorado se considerarmos o nó B, que é o próximo nó a ser percorrido. E por sua vez, é melhor que a matriz inicial, que não considera nenhum nó.</p>
 <p>Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.</p>
 <p>Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.</p>
-<p>Tente implementar o pseudocódigo, olhe o checkpoint depois de tentar um pouco, você é capaz!</p>
-<blockquote class="question">
-<p>Checkpoint</p>
-<p>Implemente o algoritmo de Floyd-Warshall em pseudocódigo.</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<pre><code class="language-pseudocode">função floydWarshall recebe Grafo:
-    distância = Grafo
-    Para k de 0 até tamanho da matriz:
-        Para i de 0 até tamanho da matriz:
-            Para j de 0 até tamanho da matriz:
-                Se distância[i][j] &gt; distância[i][k] + distância[k][j]:
-                    distância[i][j] = distância[i][k] + distância[k][j]
-
-    retorne distância
-</code></pre>
-</details>
-</blockquote>
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Olhando apenas para esse pseudocódigo, você consegue dizer qual a complexidade de tempo desse algoritmo?</p>
@@ -173,12 +155,7 @@
 <p>Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa. A nível de código, algumas linguagens aceitam o uso de infinito, porém outras não, então você pode utilizar um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.</p>
 <p>Outra regra adicionada recentemente é quanto a números negativos, que não serão tratados a fundo neste handout, porém é importante você saber que um dos pontos diferenciais do Algoritmo de Floyd-Warshall é que ele consegue tratar arestas com pesos negativos normalmente. Então se você se deparar com alguma situação destar apenas implemente o exercício normalmente que o resultado deve ser o esperado.</p>
 <h2>Implementação do Algoritmo</h2>
-<p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritm em C.</p>
-<blockquote class="question">
-<p>Checkpoint</p>
-<p>Tente implementar o algoritmo de Floyd-Warshall em C. Lembre que pode olhar o gabarito do pseudocódigo para te ajudar !</p>
-<details class="answer">
-<summary>Gabarito</summary>
+<p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:</p>
 <pre><code class="language-C">int **floydWarshall(int grafo[][], int n) {
     int **dist = grafo;
     for (int k = 0; k &lt; n; k++) {
@@ -193,8 +170,6 @@
     return dist;
 }
 </code></pre>
-</details>
-</blockquote>
 <p>Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por “[ ][ ]”, mas que também pode ser representada por “**” - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.</p>
 <h2>Exercícios</h2>
 <blockquote class="question">

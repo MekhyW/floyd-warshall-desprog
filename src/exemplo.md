@@ -43,7 +43,7 @@ Qual a matriz de pesos do Grafo abaixo?
 Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
 
-Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos. Pense na melhor forma de encontrar o menor caminho e aplique este formato nos checkpoints abaixo.
+Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos.
 
 ??? Checkpoint
 Qual o menor caminho entre o Nodo A e B?
@@ -148,27 +148,6 @@ Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e 
 
 Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.
 
-Tente implementar o pseudocódigo, olhe o checkpoint depois de tentar um pouco, você é capaz!
-
-??? Checkpoint
-Implemente o algoritmo de Floyd-Warshall em pseudocódigo.
-
-::: Gabarito
-
-``` pseudocode
-função floydWarshall recebe Grafo:
-    distância = Grafo
-    Para k de 0 até tamanho da matriz:
-        Para i de 0 até tamanho da matriz:
-            Para j de 0 até tamanho da matriz:
-                Se distância[i][j] > distância[i][k] + distância[k][j]:
-                    distância[i][j] = distância[i][k] + distância[k][j]
-
-    retorne distância
-```
-
-???
-
 ??? Checkpoint
 Olhando apenas para esse pseudocódigo, você consegue dizer qual a complexidade de tempo desse algoritmo?
 ::: Gabarito
@@ -200,12 +179,7 @@ Outra regra adicionada recentemente é quanto a números negativos, que não ser
 Implementação do Algoritmo
 ---------
 
-Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritm em C.
-
-??? Checkpoint
-Tente implementar o algoritmo de Floyd-Warshall em C. Lembre que pode olhar o gabarito do pseudocódigo para te ajudar !
-
-::: Gabarito
+Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:
 
 ``` C
 int **floydWarshall(int grafo[][], int n) {
@@ -222,8 +196,6 @@ int **floydWarshall(int grafo[][], int n) {
     return dist;
 }
 ```
-
-???
 
 Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por "[ ][ ]", mas que também pode ser representada por "**" - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
 
