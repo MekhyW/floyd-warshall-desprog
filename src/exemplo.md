@@ -253,8 +253,6 @@ Exercícios
 
 ::: Parte 1
 
-- Parte 1: Matriz de Pesos
-
     ![](Gabarito1-exercicio1.png)
 
 ::: Parte 2
