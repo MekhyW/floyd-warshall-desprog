@@ -169,7 +169,7 @@ Colocar imagem da matriz finalizada em A
 
 Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
 
-:Block
+:NodeA
 
 O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
 
