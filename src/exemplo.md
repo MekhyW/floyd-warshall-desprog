@@ -10,6 +10,31 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 
 "O cubo mágico é um exemplo de um grafo de estados. Com as menores distâncias, podemos passar de uma configuração para outra o mais rápido possível!"
 
+Grafos com Pesos
+---------
+
+Neste handout vamos apresentar diversos grafos com pesos, e é importante, antes de começar, entender o que são esses pesos, para que servem e como impactam o problema. Para isso existem alguns cenários muito importantes:
+
+1. Peso entre dois nodos.
+
+O peso entre dois nodos é calculado a partir da complexidade que se têm de viajar de um nodo para o outro. Abaixo têm um exemplo figurativo da complexidade/dificuldade que estes pesos representam.
+
+Image que você quer conectar dois pontos, A e B. Para isso escolhe o caminho mais rápido e simples, que não têm nenhum obstaculo. Você traça uma linha reta, este caminho terá peso 1.
+
+Caso existam obstaculos no meio do caminho, como pedras, vulcões, cavernas... você terá que desviar deles, e portanto, o caminho terá um peso maior que 1, neste caso escolhemos 5.
+
+:Caminho
+
+Tudo bem que tudo isso é no mundo figurativo, na realidade estes pesos podem representar muito mais do que meros obstaculos, podem ser a distância em KM entre dois pontos, a quantidade de combustivel gasto, o tempo de percurso, entre diversos outros pontos que não serão discutidos ou levados em consideração quando falarmos de pesos.
+
+2. Pesos infinitos
+
+Como será apresentado mais a frente deste handout, existe uma ideia de caminho com complexidade infinita, que é o caso em que dois nodos não têm uma conexão direta entre sí, havendo necessidade de passar por outro nodo.
+
+Para representar este caso, utilizamos o peso infinito, que é representado por um número muito grande, como 9999999999, ou tão grande quanto o tipo de dado utilizado permitir.
+
+Como você verá, está ideia será melhor apresentada ao decorrer do handout.
+
 Grafos como Matrizes
 ---------
 
@@ -106,8 +131,6 @@ Essa matriz representa todos os caminhos possíveis entre os nodos, e como podem
 Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.
 
 Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não seria mais rápido passando por D.
-
-:Caminho
 
 Agora vamos considerar este problema:
 
