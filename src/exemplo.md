@@ -185,7 +185,31 @@ Agora que você viu como funciona, tente terminar para o nodo B.
 
 ::: Gabarito
 
-Colocar imagem da matriz finalizada em B
+![](Gabarito/passo-gabaritoB.png|18)
+
+No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior.
+
+???
+
+??? Checkpoint
+Tente para o nodo C.
+
+::: Gabarito
+
+![](Gabarito/passo-gabaritoC.png|18)
+
+Mais uma vez, temos uma iteração melhor que a anterior, uma vez ques estamos considerando os nodos A, B e C como intermediarios.
+
+??? 
+
+??? Checkpoint
+Tente para o nodo D (prometo que é o último).
+
+::: Gabarito
+![](Gabarito/passo-gabaritoD.png|18)
+
+Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. 
+
 ???
 
 Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
