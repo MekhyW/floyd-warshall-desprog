@@ -28,6 +28,22 @@
 <p>Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e saber qual o menor caminho entre eles. Esse é o problema dos menores caminhos, e o algoritmo de Floyd-Warshall é uma solução para esse problema.</p>
 <figure class="img"><img src="img/cubo-arvore.png" alt="" style="max-height: 20em;"></figure>
 <p>“O cubo mágico é um exemplo de um grafo de estados. Com as menores distâncias, podemos passar de uma configuração para outra o mais rápido&nbsp;possível!”</p>
+<h2>Grafos com Pesos</h2>
+<p>Neste handout vamos apresentar diversos grafos com pesos, e é importante, antes de começar, entender o que são esses pesos, para que servem e como impactam o problema. Para isso existem alguns cenários muito importantes:</p>
+<ol>
+<li>Peso entre dois nodos.</li>
+</ol>
+<p>O peso entre dois nodos é calculado a partir da complexidade que se têm de viajar de um nodo para o outro. Abaixo têm um exemplo figurativo da complexidade/dificuldade que estes pesos representam.</p>
+<p>Image que você quer conectar dois pontos, A e B. Para isso escolhe o caminho mais rápido e simples, que não têm nenhum obstaculo. Você traça uma linha reta, este caminho terá peso 1.</p>
+<p>Caso existam obstaculos no meio do caminho, como pedras, vulcões, cavernas… você terá que desviar deles, e portanto, o caminho terá um peso maior que 1, neste caso escolhemos 5.</p>
+<div class="animation"><img class="frame" src="img/Caminho/caminho0.png" alt="1"><img class="frame" src="img/Caminho/caminho1.png" alt="2"><img class="frame" src="img/Caminho/caminho2.png" alt="3"></div>
+<p>Tudo bem que tudo isso é no mundo figurativo, na realidade estes pesos podem representar muito mais do que meros obstaculos, podem ser a distância em KM entre dois pontos, a quantidade de combustivel gasto, o tempo de percurso, entre diversos outros pontos que não serão discutidos ou levados em consideração quando falarmos de pesos.</p>
+<ol start="2">
+<li>Pesos infinitos</li>
+</ol>
+<p>Como será apresentado mais a frente deste handout, existe uma ideia de caminho com complexidade infinita, que é o caso em que dois nodos não têm uma conexão direta entre sí, havendo necessidade de passar por outro nodo.</p>
+<p>Para representar este caso, utilizamos o peso infinito, que é representado por um número muito grande, como 9999999999, ou tão grande quanto o tipo de dado utilizado permitir.</p>
+<p>Como você verá, está ideia será melhor apresentada ao decorrer do handout.</p>
 <h2>Grafos como Matrizes</h2>
 <figure class="img"><img src="img/Principal/intro.png" alt="" style="max-height: 18em;"></figure>
 <p>Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>
@@ -93,7 +109,6 @@
 <p>Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.</p>
 <p>Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.</p>
 <p>Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não seria mais rápido passando por D.</p>
-<div class="animation"><img class="frame" src="img/Caminho/caminho0.png" alt="1"><img class="frame" src="img/Caminho/caminho1.png" alt="2"><img class="frame" src="img/Caminho/caminho2.png" alt="3"></div>
 <p>Agora vamos considerar este problema:</p>
 <div class="animation"><img class="frame" src="img/Matrizes/Matriz0.png" alt="1"><img class="frame" src="img/Matrizes/Matriz1.png" alt="2"><img class="frame" src="img/Matrizes/Matriz2.png" alt="3"><img class="frame" src="img/Matrizes/Matriz3.png" alt="4"><img class="frame" src="img/Matrizes/Matriz4.png" alt="5"><img class="frame" src="img/Matrizes/Matriz5.png" alt="6"><img class="frame" src="img/Matrizes/Matriz6.png" alt="7"><img class="frame" src="img/Matrizes/Matriz7.png" alt="8"></div>
 <p>Como você deve ter percebido, o caminho passando por D é mais rápido, e portanto, o caminho de C para A passando por D é o menor caminho.</p>
@@ -106,7 +121,15 @@
 <p>2 &gt; 8 + inf ? FALSOO NÃO MUDAMOS</p>
 <p>BD &gt; BA + AD ?</p>
 <p>inf &gt; 8 + 7 ? SIMMMMMM temos um caminho mais curto</p>
+<blockquote class="question">
+<p>Checkpoint</p>
 <p>Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente uns 2 min, após isso vá para o gabarito.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Se você ficou com duvidas, vamos ver como fica as contas:</p>
+<p>Colocar imagem da matriz finalizada em A</p>
+</details>
+</blockquote>
 <p>Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.</p>
 <div class="animation"><img class="frame" src="img/Block/bloc0.png" alt="1"><img class="frame" src="img/Block/bloc1.png" alt="2"><img class="frame" src="img/Block/bloc2.png" alt="3"><img class="frame" src="img/Block/bloc4.png" alt="4"><img class="frame" src="img/Block/bloc5.png" alt="5"><img class="frame" src="img/Block/bloc6.png" alt="6"><img class="frame" src="img/Block/bloc7.png" alt="7"><img class="frame" src="img/Block/bloc8.png" alt="8"><img class="frame" src="img/Block/bloc9.png" alt="9"><img class="frame" src="img/Block/bloc91.png" alt="10"><img class="frame" src="img/Block/bloc92.png" alt="11"></div>
 <p>O primeiro loop foi feito individualmente, e como é possível ver o algoritmo “trava” em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.</p>
