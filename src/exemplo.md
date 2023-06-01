@@ -13,8 +13,7 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 Grafos como Matrizes
 ---------
 
-![](Principal/grafo-principal.png|18)
-![](Principal/matriz-principal.png|16)
+![](Principal/intro.png|18)
 
 Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
 
@@ -72,6 +71,8 @@ Você deve estar achando o problema muito fácil, basta analisarmos os nodos e s
 ??? Checkpoint
 Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?
 
+OBS: **Não gaste mais do que 1 minuto nesse Checkpoint!**
+
 ![](Principal/gigante.png|14)
 
 ::: Gabarito
@@ -94,11 +95,11 @@ Então vamos construir o pensamento do algoritmo aos poucos, ok ?
 
 Primeiro, vamos analisar o grafo abaixo:
 
-COLOCAR O GRAFO INICIAL
+![](What-is/grafo-whatis.png|18)
 
 Como você aprendeu anteriormente, a matriz para este gráfo é a seguinte:
 
-COLOCAR A MATRIZ INICIAL
+![](What-is/matriz-whatis.png|18)
 
 Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.
 
@@ -106,7 +107,11 @@ Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sa
 
 Vamos considerar o nodo D como intermediario, e analisar se ir de C para A não seria mais rápido passando por D.
 
-COLOCAR IMAGEM DA COMPARAÇÃO ENTRE CAMINHO
+:Caminho
+
+Agora vamos considerar este problema:
+
+:Matrizes
 
 Como você deve ter percebido, o caminho passando por D é mais rápido, e portanto, o caminho de C para A passando por D é o menor caminho. 
 
@@ -143,9 +148,7 @@ Colocar imagem da matriz finalizada em A
 
 Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
 
-DESENHAR MATRIZ RISCADA NA LINHA A E COLUNA A
-
-:Matrizes
+:Block
 
 O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
 
@@ -158,18 +161,6 @@ Imagine que você está calculando as distâncias, e "travou" o nó A. Isso sign
 Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.
 
 Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.
-
-??? Checkpoint
-Olhando apenas para esse pseudocódigo, você consegue dizer qual a complexidade de tempo desse algoritmo?
-::: Gabarito
-Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³).
-???
-
-??? Checkpoint
-E qual a complexidade de espaço? Lembre-se que o algoritmo recebe uma matriz de pesos e retorna uma matriz de distâncias.
-::: Gabarito
-A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n².
-???
 
 Agora que todos os conceitos sobre Floyd-Warshall foram demonstrados, você já viu a teória, sabe transformar um Grafo em Matriz e têm ideia de como implementar o código. Vamos voltar para tratar das regras e estabelecer elas definitivamente, principalmente a 3° Regra.
 
@@ -209,6 +200,14 @@ int **floydWarshall(int grafo[][], int n) {
 ```
 
 Nesta implementação é importante manter em mente que a função floydWarshall recebe um matriz - representada por "[ ][ ]", mas que também pode ser representada por "**" - e o tamanho da matriz, que é representado por n. Devolvendo outra matriz de mesmo tamanho de distâncias.
+
+??? Checkpoint
+Apenas olhando para esse pseudocódigo, você conseguiria dizer qual é a complexidade de tempo desse algoritmo? E a complexidade de espaço?
+::: Gabarito
+Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da matriz, a complexidade de tempo é O(n³). 
+
+A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n². Não cresce mais do que o tamanho da matriz de entrada, pois o algoritmo utiliza a mesma matriz para guardar a matriz de distâncias.
+???
 
 Exercícios
 ---------
