@@ -274,40 +274,6 @@ Como o algoritmo utiliza 3 loops de for para percorrer todos os elementos da mat
 A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de distâncias de tamanho n². Não cresce mais do que o tamanho da matriz de entrada, pois o algoritmo utiliza a mesma matriz para guardar a matriz de distâncias.
 ???
 
-Exercícios
----------
-
-??? Exercício 1 - Descobrindo Todos Caminhos mais Curtos
-
-![](Exercicio1.png)
-
-- Parte 1: Matriz de Pesos
-
-    Construa a matriz de pesos do grafo acima. Utilizando as Regras definitivas.
-
-- Parte 2: Implemente o Código em C
-
-    Implemente o código em C para encontrar todos os caminhos mais curtos entre todos os nodos do grafo. Utilizando a função floydWarshall.
-
-- Parte 3: Construa a Matriz de Distâncias, após a execução do algoritmo
-
-    Construa a matriz de distâncias do grafo acima. Utilizando as Regras definitivas.
-
-::: Gabarito
-
-::: Parte 1
-
-    ![](Gabarito1-exercicio1.png)
-
-::: Parte 2
-
-    Simplesmente chame a função floydWarshall passando a matriz de pesos corretamente. Lembre que infito pode ser interpretado como um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.
-
-::: Parte 3
-![](Gabarito1-exercicio3.png)
-
-???
-
 Desafios
 ---------
 
