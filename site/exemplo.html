@@ -29,7 +29,8 @@
 <figure class="img"><img src="img/cubo-arvore.png" alt="" style="max-height: 20em;"></figure>
 <p>“O cubo mágico é um exemplo de um grafo de estados. Com as menores distâncias, podemos passar de uma configuração para outra o mais rápido&nbsp;possível!”</p>
 <h2>Grafos como Matrizes</h2>
-<figure class="img"><img src="img/Exemplos/Grafo-Exemplo1.png" alt="" style="max-height: 15em;"></figure>
+<p><img src="img/Principal/grafo-principal.png" alt="" style="max-height: 18em;">
+<img src="img/Principal/matriz-principal.png" alt="" style="max-height: 16em;"></p>
 <p>Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>
 <p>Este formato pode ir desde listas, pilhas, filas… porém nenhum destes modelos consegue representar todas as possibilidades de expansão de um grafo, por isso, o modelo mais utilizado é o de Matrizes.</p>
 <p>Mas como que uma matriz pode representar um grafo? Para isso existem regras de construção:</p>
@@ -40,15 +41,14 @@
 <li>Se existe uma aresta entre dois Nodes, o peso é igual ao peso da aresta.</li>
 </ol>
 <p>A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.</p>
-<figure class="img"><img src="img/Exemplos/Matriz-Grafo1.png" alt="" style="max-height: 20em;"></figure>
 <p><em>Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.</em></p>
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual a matriz de pesos do Grafo abaixo?</p>
-<figure class="img"><img src="img/Exemplo-1.png" alt="" style="max-height: 13em;"></figure>
+<figure class="img"><img src="img/Principal/grafo-checkpoint1.png" alt="" style="max-height: 15em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
-<figure class="img"><img src="img/matriz-exemplo.png" alt=""></figure>
+<figure class="img"><img src="img/Principal/matriz-checkpoint1.png" alt="" style="max-height: 14em;"></figure>
 <p>Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.</p>
 </details>
 </blockquote>
@@ -56,7 +56,7 @@
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual o menor caminho entre o Nodo A e B?</p>
-<figure class="img"><img src="img/Exemplos/Checkpoint2.png" alt=""></figure>
+<figure class="img"><img src="img/Principal/grafo-checkpoint2.png" alt="" style="max-height: 14em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>O menor caminho entre A e B é ir pelo nodo C que têm peso 5, e depois de C chegar em B, tendo um peso total de 6 - contra o caminho convencional de 7.</p>
@@ -65,7 +65,7 @@
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual o menor caminho entre o nodo B e C?</p>
-<figure class="img"><img src="img/Exemplos/Checkpoint2.png" alt=""></figure>
+<figure class="img"><img src="img/Principal/grafo-checkpoint2.png" alt="" style="max-height: 14em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>O menor caminho entre B e C é ir pelo nodo A que têm peso 5 e depois ir para o nodo C com um peso total de 6 - contra o caminho convencional de 10.</p>
@@ -75,7 +75,7 @@
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?</p>
-<figure class="img"><img src="img/Exemplos/Grafo-Checkpoint3-desafio.png" alt=""></figure>
+<figure class="img"><img src="img/Principal/gigante.png" alt="" style="max-height: 14em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>Tenho certeza que você nem tentou resolver e já abriu o gabarito. Mas tudo bem, não esperamos que você resolva este Checkpoint, se quiser algo realmente dificil, desça até os desafios.</p>

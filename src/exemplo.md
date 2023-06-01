@@ -13,7 +13,8 @@ Imagine saber todos os caminhos possíveis entre dois pontos de um grafo, e sabe
 Grafos como Matrizes
 ---------
 
-![](Exemplos/Grafo-Exemplo1.png|15)
+![](Principal/grafo-principal.png|18)
+![](Principal/matriz-principal.png|16)
 
 Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.
 
@@ -28,18 +29,16 @@ Mas como que uma matriz pode representar um grafo? Para isso existem regras de c
 
 A 3° regra é uma excessão, que será utilizada para melhor entendimento dos conceitos inicias, posteriormente será tratada novamente com outra definição.
 
-![](Exemplos/Matriz-Grafo1.png|20)
-
 *Dica: Construa a Matriz das linhas para as colunas. Então se estiver na Coluna A e Linha B, o peso da aresta é o peso da flecha que liga o Node A ao Node B - e não o inverso.*
 
 ??? Checkpoint
 Qual a matriz de pesos do Grafo abaixo?
 
-![](Exemplo-1.png|13)
+![](Principal/grafo-checkpoint1.png|15)
 
 ::: Gabarito
 
-![](matriz-exemplo.png)
+![](Principal/matriz-checkpoint1.png|14)
 
 Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e pode seguir para o próximo Checkpoint. Se não compreendeu é importante ler as regras novamente e ver se ao construir sua Matriz seguiu todas elas.
 ???
@@ -49,7 +48,7 @@ Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor 
 ??? Checkpoint
 Qual o menor caminho entre o Nodo A e B?
 
-![](Exemplos/Checkpoint2.png)
+![](Principal/grafo-checkpoint2.png|14)
 
 ::: Gabarito
 
@@ -60,7 +59,7 @@ O menor caminho entre A e B é ir pelo nodo C que têm peso 5, e depois de C che
 ??? Checkpoint
 Qual o menor caminho entre o nodo B e C?
 
-![](Exemplos/Checkpoint2.png)
+![](Principal/grafo-checkpoint2.png|14)
 
 ::: Gabarito
 
@@ -73,7 +72,7 @@ Você deve estar achando o problema muito fácil, basta analisarmos os nodos e s
 ??? Checkpoint
 Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?
 
-![](Exemplos/Grafo-Checkpoint3-desafio.png)
+![](Principal/gigante.png|14)
 
 ::: Gabarito
 
