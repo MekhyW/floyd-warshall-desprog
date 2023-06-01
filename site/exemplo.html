@@ -84,7 +84,15 @@
 <p>Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado, para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial.</p>
 <h2>O que é o Algoritmo Floyd-Warshall</h2>
 <p>Floyd-Warshall é um algoritmo que utiliza de programação dinâmica para encontrar todos os caminhos entre todos os Nodos de um Grafo/Matriz, dos encontrados seleciona os menores e guarda eles em uma Matriz de mesma dimensão da inicial.</p>
-<p>Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo.</p>
+<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
+<p>Então vamos construir o pensamento do algoritmo aos poucos, ok ?</p>
+<p>Primeiro, vamos analisar o grafo abaixo:</p>
+<p>COLOCAR O GRAFO INICIAL</p>
+<p>Como você aprendeu anteriormente, a matriz para este gráfo é a seguinte:</p>
+<p>COLOCAR A MATRIZ INICIAL</p>
+<p>Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.</p>
+<p>Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.</p>
+<p>Vamos considerar o nodo A como intermediario, e verificar se ao invés de ir direto de B para C por exemplo, passando por A não é mais vantajoso. Para isso, vamos analisar o caminho de B para A, e de A para C, e somar os pesos. Se essa soma for menor que o caminho direto, então o caminho por A é melhor.</p>
 <div class="animation"><img class="frame" src="img/Matrizes/Matriz0.png" alt="1"><img class="frame" src="img/Matrizes/Matriz1.png" alt="2"><img class="frame" src="img/Matrizes/Matriz2.png" alt="3"><img class="frame" src="img/Matrizes/Matriz3.png" alt="4"><img class="frame" src="img/Matrizes/Matriz4.png" alt="5"><img class="frame" src="img/Matrizes/Matriz5.png" alt="6"><img class="frame" src="img/Matrizes/Matriz6.png" alt="7"></div>
 <p>O primeiro loop foi feito individualmente, e como é possível ver o algoritmo “trava” em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.</p>
 <p>Na verdade, o algoritmo não trava o nó. O conceito de “travar” se da pelo fato de não fazer sentido usar o nó em questão para o calculo da distância, visto que o nó em questão é o nó de origem do caminho.</p>

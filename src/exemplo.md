@@ -88,7 +88,23 @@ O que é o Algoritmo Floyd-Warshall
 
 Floyd-Warshall é um algoritmo que utiliza de programação dinâmica para encontrar todos os caminhos entre todos os Nodos de um Grafo/Matriz, dos encontrados seleciona os menores e guarda eles em uma Matriz de mesma dimensão da inicial.
 
-Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo.
+<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
+
+Então vamos construir o pensamento do algoritmo aos poucos, ok ?
+
+Primeiro, vamos analisar o grafo abaixo:
+
+COLOCAR O GRAFO INICIAL
+
+Como você aprendeu anteriormente, a matriz para este gráfo é a seguinte:
+
+COLOCAR A MATRIZ INICIAL
+
+Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.
+
+Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.
+
+Vamos considerar o nodo A como intermediario, e verificar se ao invés de ir direto de B para C por exemplo, passando por A não é mais vantajoso. Para isso, vamos analisar o caminho de B para A, e de A para C, e somar os pesos. Se essa soma for menor que o caminho direto, então o caminho por A é melhor.
 
 :Matrizes
 
