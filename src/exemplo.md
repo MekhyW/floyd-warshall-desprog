@@ -144,32 +144,75 @@ Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim po
 
 Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.
 
-COLOCAR ANIMAÇÃO DAS COMPAREÇÕES PARA O NODO A
+:NodeA
 
 A pergunta que precisamos fazer é: 
 
-BC > BA + AC ?
+- BC > BA + AC ?
 
 2 > 8 + inf ? FALSOO NÃO MUDAMOS
 
-BD > BA + AD ?
+- BD > BA + AD ?
 
-inf > 8 + 7 ? SIMMMMMM temos um caminho mais curto
+inf > 8 + 7 ? SIM temos um caminho mais curto, então vamos substituir o valor de BD por 15.
 
+- CB > CA + AB ? 
+
+inf > 5 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de CB por 8.
+
+- CD > CA + AD ?
+
+1 > 5 + 7 ? FALSO NÃO MUDAMOS
+
+- DB > DA + AB ? 
+
+inf > 2 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de DB por 5.
+
+- DC > DA + AC ?
+
+inf > 2 + inf ? FALSO NÃO MUDAMOS
+
+UFAAA, terminamos o nodo A. 
+
+Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.
+
+E agora, o que fazemos ?
+
+Agora vamos considerar o nodo B como intermediario, e repetir o processo. E assim por diante, até o último nodo.
 
 ??? Checkpoint
-Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente uns 2 min, após isso vá para o gabarito.
+Agora que você viu como funciona, tente terminar para o nodo B.
 
 ::: Gabarito
 
-Se você ficou com duvidas, vamos ver como fica as contas:
+![](Gabarito/passo-gabaritoB.png|18)
 
-Colocar imagem da matriz finalizada em A
+No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior.
+
+???
+
+??? Checkpoint
+Tente para o nodo C.
+
+::: Gabarito
+
+![](Gabarito/passo-gabaritoC.png|18)
+
+Mais uma vez, temos uma iteração melhor que a anterior, uma vez ques estamos considerando os nodos A, B e C como intermediarios.
+
+??? 
+
+??? Checkpoint
+Tente para o nodo D (prometo que é o último).
+
+::: Gabarito
+![](Gabarito/passo-gabaritoD.png|18)
+
+Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. 
+
 ???
 
 Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
-
-:NodeA
 
 O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
 

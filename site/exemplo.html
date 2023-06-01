@@ -115,23 +115,64 @@
 <p>Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos criar uma regra para isso.</p>
 <p>Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.</p>
 <p>Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.</p>
-<p>COLOCAR ANIMAÇÃO DAS COMPAREÇÕES PARA O NODO A</p>
+<div class="animation"><img class="frame" src="img/NodeA/a0.png" alt="1"><img class="frame" src="img/NodeA/a1.png" alt="2"><img class="frame" src="img/NodeA/a2.png" alt="3"><img class="frame" src="img/NodeA/a3.png" alt="4"><img class="frame" src="img/NodeA/a4.png" alt="5"><img class="frame" src="img/NodeA/a5.png" alt="6"><img class="frame" src="img/NodeA/a6.png" alt="7"></div>
 <p>A pergunta que precisamos fazer é:</p>
-<p>BC &gt; BA + AC ?</p>
+<ul>
+<li>BC &gt; BA + AC ?</li>
+</ul>
 <p>2 &gt; 8 + inf ? FALSOO NÃO MUDAMOS</p>
-<p>BD &gt; BA + AD ?</p>
-<p>inf &gt; 8 + 7 ? SIMMMMMM temos um caminho mais curto</p>
+<ul>
+<li>BD &gt; BA + AD ?</li>
+</ul>
+<p>inf &gt; 8 + 7 ? SIM temos um caminho mais curto, então vamos substituir o valor de BD por 15.</p>
+<ul>
+<li>CB &gt; CA + AB ?</li>
+</ul>
+<p>inf &gt; 5 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de CB por 8.</p>
+<ul>
+<li>CD &gt; CA + AD ?</li>
+</ul>
+<p>1 &gt; 5 + 7 ? FALSO NÃO MUDAMOS</p>
+<ul>
+<li>DB &gt; DA + AB ?</li>
+</ul>
+<p>inf &gt; 2 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de DB por 5.</p>
+<ul>
+<li>DC &gt; DA + AC ?</li>
+</ul>
+<p>inf &gt; 2 + inf ? FALSO NÃO MUDAMOS</p>
+<p>UFAAA, terminamos o nodo A.</p>
+<p>Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.</p>
+<p>E agora, o que fazemos ?</p>
+<p>Agora vamos considerar o nodo B como intermediario, e repetir o processo. E assim por diante, até o último nodo.</p>
 <blockquote class="question">
 <p>Checkpoint</p>
-<p>Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente uns 2 min, após isso vá para o gabarito.</p>
+<p>Agora que você viu como funciona, tente terminar para o nodo B.</p>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>Se você ficou com duvidas, vamos ver como fica as contas:</p>
-<p>Colocar imagem da matriz finalizada em A</p>
+<figure class="img"><img src="img/Gabarito/passo-gabaritoB.png" alt="" style="max-height: 18em;"></figure>
+<p>No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>Tente para o nodo C.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<figure class="img"><img src="img/Gabarito/passo-gabaritoC.png" alt="" style="max-height: 18em;"></figure>
+<p>Mais uma vez, temos uma iteração melhor que a anterior, uma vez ques estamos considerando os nodos A, B e C como intermediarios.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>Tente para o nodo D (prometo que é o último).</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<figure class="img"><img src="img/Gabarito/passo-gabaritoD.png" alt="" style="max-height: 18em;"></figure>
+<p>Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios.</p>
 </details>
 </blockquote>
 <p>Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.</p>
-<div class="animation"><img class="frame" src="img/NodeA/a0.png" alt="1"><img class="frame" src="img/NodeA/a1.png" alt="2"><img class="frame" src="img/NodeA/a2.png" alt="3"><img class="frame" src="img/NodeA/a3.png" alt="4"><img class="frame" src="img/NodeA/a4.png" alt="5"><img class="frame" src="img/NodeA/a5.png" alt="6"><img class="frame" src="img/NodeA/a6.png" alt="7"></div>
 <p>O primeiro loop foi feito individualmente, e como é possível ver o algoritmo “trava” em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.</p>
 <p>Na verdade, o algoritmo não trava o nó. O conceito de “travar” se da pelo fato de não fazer sentido usar o nó em questão para o calculo da distância, visto que o nó em questão é o nó de origem do caminho.</p>
 <p>Desta forma, quando calculamos a matriz de distâncias, o resultado previo, é a menor distancia considerando apenas os nós ja percorridos.</p>
