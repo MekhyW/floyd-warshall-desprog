@@ -128,7 +128,18 @@ BD > BA + AD ?
 
 inf > 8 + 7 ? SIMMMMMM temos um caminho mais curto
 
+
+??? Checkpoint
 Agora que vocÊ viu como funciona, tente terminar para essa iteração. Tente uns 2 min, após isso vá para o gabarito.
+
+::: Gabarito
+
+Se você ficou com duvidas, vamos ver como fica as contas:
+
+
+
+Colocar imagem da matriz finalizada em A
+???
 
 Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
 
