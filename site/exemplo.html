@@ -46,6 +46,7 @@
 <figure class="img"><img src="img/Balsa/1.png" alt="" style="max-height: 18em;"></figure>
 <p>Isso significa que é impossível ir de São Paulo a Ilha Bela? Claro que não! Precisamos de uma balsa. Ou seja, precisamos de um intermediario para chegar em Ilha Bela. Nosso algoritmo irá encontrar este intermediario e atualizar o “infinito” para o peso real do caminho, que é o peso de São Paulo até a balsa + o peso da balsa até Ilha Bela.</p>
 <figure class="img"><img src="img/Balsa/2.png" alt="" style="max-height: 18em;"></figure>
+<p>De maneira análoga, se quisermos ir de São Paulo até São Paulo, o peso é 0, pois não precisamos sair de São Paulo para chegar em São Paulo. O peso de um vértice para ele mesmo é sempre 0.</p>
 <h2>Grafos como Matrizes</h2>
 <figure class="img"><img src="img/Principal/intro.png" alt="" style="max-height: 18em;"></figure>
 <p>Este é um exemplo de grafo muito utilizado, existem 3 nodos que estão conectados por caminhos com pesos diferentes. O nosso computador, porém, não têm a capacidade de receber como input este grafo, ele têm que ser guardado em um formato de dados que represente todos os nodos e seus pesos.</p>
@@ -116,31 +117,61 @@
 <p>Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.</p>
 <p>Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.</p>
 <div class="animation"><img class="frame" src="img/NodeA/block0.png" alt="1"><img class="frame" src="img/NodeA/block1.png" alt="2"><img class="frame" src="img/NodeA/block2.png" alt="3"><img class="frame" src="img/NodeA/block3.png" alt="4"><img class="frame" src="img/NodeA/block4.png" alt="5"><img class="frame" src="img/NodeA/block5.png" alt="6"><img class="frame" src="img/NodeA/block6.png" alt="7"></div>
+<blockquote class="question">
+<p>Checkpoint</p>
 <p>A pergunta que precisamos fazer é:</p>
-<ul>
-<li>BC &gt; BA + AC ?</li>
-</ul>
-<p>2 &gt; 8 + inf ? FALSOO NÃO MUDAMOS</p>
-<ul>
-<li>BD &gt; BA + AD ?</li>
-</ul>
-<p>inf &gt; 8 + 7 ? SIM temos um caminho mais curto, então vamos substituir o valor de BD por 15.</p>
-<ul>
-<li>CB &gt; CA + AB ?</li>
-</ul>
-<p>inf &gt; 5 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de CB por 8.</p>
-<ul>
-<li>CD &gt; CA + AD ?</li>
-</ul>
-<p>1 &gt; 5 + 7 ? FALSO NÃO MUDAMOS</p>
-<ul>
-<li>DB &gt; DA + AB ?</li>
-</ul>
-<p>inf &gt; 2 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de DB por 5.</p>
-<ul>
-<li>DC &gt; DA + AC ?</li>
-</ul>
-<p>inf &gt; 2 + inf ? FALSO NÃO MUDAMOS</p>
+<p>BC &gt; BA + AC ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>2 &gt; 8 + inf ?</p>
+<p>FALSOO, então não mudamos.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>BD &gt; BA + AD ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 8 + 7 ?</p>
+<p>SIM, temos um caminho mais curto, então vamos substituir o valor de BD por 15.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>CB &gt; CA + AB ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 5 + 3 ?</p>
+<p>SIM, temos um caminho mais curto, então vamos substituir o valor de CB por 8.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>CD &gt; CA + AD ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>1 &gt; 5 + 7 ?</p>
+<p>FALSO, não mudamos.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>DB &gt; DA + AB ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 2 + 3 ?</p>
+<p>SIM, temos um caminho mais curto, então vamos substituir o valor de DB por 5.</p>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<p>DC &gt; DA + AC ?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>inf &gt; 2 + inf ?</p>
+<p>FALSO, não mudamos.</p>
+</details>
+</blockquote>
 <p>UFAAA, terminamos o nodo A.</p>
 <p>Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.</p>
 <p>E agora, o que fazemos ?</p>
@@ -172,15 +203,8 @@
 <p>Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios.</p>
 </details>
 </blockquote>
-<p>Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.</p>
-<p>O primeiro loop foi feito individualmente, e como é possível ver o algoritmo “trava” em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.</p>
-<p>Na verdade, o algoritmo não trava o nó. O conceito de “travar” se da pelo fato de não fazer sentido usar o nó em questão para o calculo da distância, visto que o nó em questão é o nó de origem do caminho.</p>
-<p>Desta forma, quando calculamos a matriz de distâncias, o resultado previo, é a menor distancia considerando apenas os nós ja percorridos.</p>
-<p>Imagine que você está calculando as distâncias, e “travou” o nó A. Isso significa que o resultado final é o melhor caminho entre A e os outros nodos, porém, este caminho pode ser melhorado se considerarmos o nó B, que é o próximo nó a ser percorrido. E por sua vez, é melhor que a matriz inicial, que não considera nenhum nó.</p>
-<p>Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.</p>
-<p>Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.</p>
-<p>Agora que todos os conceitos sobre Floyd-Warshall foram demonstrados, você já viu a teória, sabe transformar um Grafo em Matriz e têm ideia de como implementar o código. Vamos voltar para tratar das regras e estabelecer elas definitivamente, principalmente a 3° Regra.</p>
-<h2>Regras:</h2>
+<h2>Implementação do Algoritmo</h2>
+<p>Em resumo, vamos usar as seguintes regras para implementar o algoritmo:</p>
 <figure class="table"><table>
 <thead>
 <tr>
@@ -212,9 +236,6 @@
 </tr>
 </tbody>
 </table></figure>
-<p>Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa. A nível de código, algumas linguagens aceitam o uso de infinito, porém outras não, então você pode utilizar um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.</p>
-<p>Outra regra adicionada recentemente é quanto a números negativos, que não serão tratados a fundo neste handout, porém é importante você saber que um dos pontos diferenciais do Algoritmo de Floyd-Warshall é que ele consegue tratar arestas com pesos negativos normalmente. Então se você se deparar com alguma situação destar apenas implemente o exercício normalmente que o resultado deve ser o esperado.</p>
-<h2>Implementação do Algoritmo</h2>
 <p>Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:</p>
 <pre><code class="language-C">int **floydWarshall(int grafo[][], int n) {
     int **dist = grafo;

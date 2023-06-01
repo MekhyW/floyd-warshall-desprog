@@ -39,6 +39,8 @@ Isso significa que é impossível ir de São Paulo a Ilha Bela? Claro que não! 
 
 ![](Balsa/2.png|18)
 
+De maneira análoga, se quisermos ir de São Paulo até São Paulo, o peso é 0, pois não precisamos sair de São Paulo para chegar em São Paulo. O peso de um vértice para ele mesmo é sempre 0.
+
 Grafos como Matrizes
 ---------
 
@@ -147,31 +149,55 @@ Começando pelo nodo A como intermediario, não precisamos checar a linha A e ne
 
 :NodeA
 
-A pergunta que precisamos fazer é: 
+??? Checkpoint
+A pergunta que precisamos fazer é:
 
-- BC > BA + AC ?
+BC > BA + AC ?
+::: Gabarito
+2 > 8 + inf ? 
 
-2 > 8 + inf ? FALSOO NÃO MUDAMOS
+FALSOO, então não mudamos.
+???
 
-- BD > BA + AD ?
+??? Checkpoint
+BD > BA + AD ?
+::: Gabarito
+inf > 8 + 7 ? 
 
-inf > 8 + 7 ? SIM temos um caminho mais curto, então vamos substituir o valor de BD por 15.
+SIM, temos um caminho mais curto, então vamos substituir o valor de BD por 15.
+???
 
-- CB > CA + AB ? 
+??? Checkpoint
+CB > CA + AB ? 
+::: Gabarito
+inf > 5 + 3 ? 
 
-inf > 5 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de CB por 8.
+SIM, temos um caminho mais curto, então vamos substituir o valor de CB por 8.
+???
 
-- CD > CA + AD ?
+??? Checkpoint
+CD > CA + AD ?
+::: Gabarito
+1 > 5 + 7 ?
 
-1 > 5 + 7 ? FALSO NÃO MUDAMOS
+FALSO, não mudamos.
+???
+ 
+??? Checkpoint
+DB > DA + AB ? 
+::: Gabarito
+inf > 2 + 3 ?
 
-- DB > DA + AB ? 
+SIM, temos um caminho mais curto, então vamos substituir o valor de DB por 5.
+???
 
-inf > 2 + 3 ? SIM temos um caminho mais curto, então vamos substituir o valor de DB por 5.
+??? Checkpoint
+DC > DA + AC ?
+::: Gabarito
+inf > 2 + inf ?
 
-- DC > DA + AC ?
-
-inf > 2 + inf ? FALSO NÃO MUDAMOS
+FALSO, não mudamos.
+???
 
 UFAAA, terminamos o nodo A. 
 
@@ -213,24 +239,10 @@ Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível e
 
 ???
 
-Como o resultado é falso, não precisamos fazer nada, pois o caminho de A para B é o menor caminho.
-
-O primeiro loop foi feito individualmente, e como é possível ver o algoritmo "trava" em um dos nodos - inicialmente o A - e calcula todos os caminhos dele para os outros nodos, replicando este processo até ter percorrido todos os possíveis caminhos em todos os nodos.
-
-Na verdade, o algoritmo não trava o nó. O conceito de "travar" se da pelo fato de não fazer sentido usar o nó em questão para o calculo da distância, visto que o nó em questão é o nó de origem do caminho.
-
-Desta forma, quando calculamos a matriz de distâncias, o resultado previo, é a menor distancia considerando apenas os nós ja percorridos. 
-
-Imagine que você está calculando as distâncias, e "travou" o nó A. Isso significa que o resultado final é o melhor caminho entre A e os outros nodos, porém, este caminho pode ser melhorado se considerarmos o nó B, que é o próximo nó a ser percorrido. E por sua vez, é melhor que a matriz inicial, que não considera nenhum nó.
-
-Logo, considerando o segundo nó, teremos um resultado melhor que o anterior, e assim por diante, até que todos os nodos tenham sido percorridos.
-
-Se você chegou até aqui, deve ter desconfiado de como o algoritmo funciona, e se você pensou que ele utiliza de programação dinâmica, você está certo. O algoritmo de Floyd-Warshall utiliza de programação dinâmica para encontrar todos os menores caminhos de um grafo.
-
-Agora que todos os conceitos sobre Floyd-Warshall foram demonstrados, você já viu a teória, sabe transformar um Grafo em Matriz e têm ideia de como implementar o código. Vamos voltar para tratar das regras e estabelecer elas definitivamente, principalmente a 3° Regra.
-
-Regras:
+Implementação do Algoritmo
 ---------
+
+Em resumo, vamos usar as seguintes regras para implementar o algoritmo:
 
 | Regras | Teória                                  | Prática                              |
 |--------|-----------------------------------------|--------------------------------------|
@@ -238,13 +250,6 @@ Regras:
 | 2°     | Nodo A -> Nodo A = 0                    | Não modificar input diretamente      |
 | 3°     | Se não existe aresta peso = infinito    |                                      |
 | 4°     | Se existir aresta peso = peso da aresta |                                      |
-
-Você deve ter percebido que agora ao invês de considerarmos igual a zero, estamos utilizando a notação infinito para representar que o custo de percorrer este caminho é extremamente alto - visto que não existe alternativa. A nível de código, algumas linguagens aceitam o uso de infinito, porém outras não, então você pode utilizar um valor muito alto, como 9999999999, ou tão alto quanto o tipo de dado utilizado permitir.
-
-Outra regra adicionada recentemente é quanto a números negativos, que não serão tratados a fundo neste handout, porém é importante você saber que um dos pontos diferenciais do Algoritmo de Floyd-Warshall é que ele consegue tratar arestas com pesos negativos normalmente. Então se você se deparar com alguma situação destar apenas implemente o exercício normalmente que o resultado deve ser o esperado.
-
-Implementação do Algoritmo
----------
 
 Agora que você já sabe como o algoritmo funciona, e quais são as regras que devem ser seguidas, vamos implementar o algoritmo em C. Ao fazer isso, ela deverá ficar algo como:
 
