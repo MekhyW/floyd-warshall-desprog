@@ -109,27 +109,23 @@ Tenho certeza que você nem tentou resolver e já abriu o gabarito. Mas tudo bem
 
 ???
 
-Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado, para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial.
+Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado.
 
 
 O que é o Algoritmo Floyd-Warshall
 ---------
 
-Floyd-Warshall é um algoritmo que utiliza de programação dinâmica para encontrar todos os caminhos entre todos os Nodos de um Grafo/Matriz, dos encontrados seleciona os menores e guarda eles em uma Matriz de mesma dimensão da inicial.
+Floyd-Warshall é um algoritmo criado para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial. Usando programação dinâmica, ele irá encontrar os caminhos possíveis e selecionar os menores, atualizando a matriz de distâncias. Isso é muito poderoso para **grafos densos** (com muitas interconexões, como o que você tentou analisar logo acima).
 
-Então vamos construir o pensamento do algoritmo aos poucos, ok ?
+<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
+
+Vamos construir o pensamento do algoritmo aos poucos.
 
 Primeiro, vamos analisar o grafo abaixo:
 
 ![](What-is/grafo-whatis.png|18)
 
-Como você aprendeu anteriormente, a matriz para este gráfo é a seguinte:
-
-![](What-is/matriz-whatis.png|18)
-
-Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.
-
-Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sair de um nodo e chegar em outro. Porém, se considerarmos um nó intermediario, e agora que começamos a brincar.
+Nessse ponto, sem considerar nenhum nó intermediario, a melhor maneira de sair de um nodo e chegar em outro é pela aresta que liga os dois, e se não há uma, assumimos peso infinito. Porém, se considerarmos um nó intermediario, podemos começamos a brincar.
 
 Agora vamos considerar este problema:
 
@@ -142,6 +138,8 @@ Mas fazer isso sem uma regra, não vai nos levar a lugar algum, então vamos cri
 Vamos analisar primeiro o nodo A, como intermediario, depois o nodo B e assim por diante até o último nodo.
 
 Começando pelo nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, pois o nodo A é o nodo de origem do caminho, e portanto, não faz sentido considerar o nodo de origem como intermediario.
+
+:NodeA
 
 ??? Checkpoint
 A pergunta que precisamos fazer é:
@@ -193,12 +191,9 @@ inf > 2 + inf ?
 FALSO, não mudamos.
 ???
 
-UFAAA, terminamos o nodo A. Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.
+UFAAA, terminamos o nodo A. 
 
-
-Ficou com alguma dúvida ? Mesmo que não, recomendo que veja a seguinte animação que mostra o processo que acabamos de fazer:
-
-:NodeA
+Isso quer dizer que a matriz que temos representa o menor caminho entre os nodos, considerando apenas o nodo A como intermediario.
 
 E agora, o que fazemos ?
 
@@ -211,7 +206,7 @@ Agora que você viu como funciona, tente terminar para o nodo B.
 
 ![](Gabarito/passo-gabaritoB.png|18)
 
-No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior, usando as respostas do passo anterior como ponto de partida.
+No fim deste passo, temos a matriz que representa o menor caminho entre os nodos, considerando os nodos A e B como intermediarios. Ou seja, temos uma iteração melhor que a anterior.
 
 ???
 
@@ -232,9 +227,7 @@ Tente para o nodo D (prometo que é o último).
 ::: Gabarito
 ![](Gabarito/passo-gabaritoD.png|18)
 
-Ufa, deu trabalho né !
-
-A matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. Além disso, a cada passo melhoramos a nossa resposta, sempre considerando a anterior como entrada, e no final temos os menores caminhos possíveis de todos os nodos indo para todos os nodos.
+Ufa, deu trabalho né. Mas a matriz final representa o menor caminho possível entre todos os nodos, considerando todos os nodos como intermediarios. 
 
 ???
 
