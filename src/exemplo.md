@@ -94,11 +94,11 @@ Então vamos construir o pensamento do algoritmo aos poucos, ok ?
 
 Primeiro, vamos analisar o grafo abaixo:
 
-COLOCAR O GRAFO INICIAL
+![](What-is/grafo-whatis.png|18)
 
 Como você aprendeu anteriormente, a matriz para este gráfo é a seguinte:
 
-COLOCAR A MATRIZ INICIAL
+![](What-is/matriz-whatis.png|18)
 
 Essa matriz representa todos os caminhos possíveis entre os nodos, e como podemos ver, alguns deles não existem. Como discutido, precisamos por um valor para eles, algo que represente essa impossíbilidade. Algo impossível de alcançar remete a algo grande, ou seja, infinito. Portanto, ao se deparar com um caminho inexistente, colocaremos o valor infinito.
 
@@ -106,7 +106,7 @@ Nessse ponto, sem considerar nenhum nó intermediario, é a melhor maneira de sa
 
 Vamos considerar o nodo A como intermediario, e verificar se ao invés de ir direto de B para C por exemplo, passando por A não é mais vantajoso. Para isso, vamos analisar o caminho de B para A, e de A para C, e somar os pesos. Se essa soma for menor que o caminho direto, então o caminho por A é melhor.
 
-COLOCAR IMAGEM DA COMPARAÇÃO ENTRE CAMINHO
+:Caminho
 
 Como vamos usar o nodo A como intermediario, não precisamos checar a linha A e nem a coluna A, basta analisar a submatriz que não contém o nodo A.
 
